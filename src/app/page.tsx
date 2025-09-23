@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <div className="min-h-screen w-screen">
+    <div className="min-h-screen">
       <Header />
       <Hero />
       <Footer />

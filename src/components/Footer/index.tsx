@@ -38,7 +38,7 @@ export default function Footer() {
           </p>
         </div>
       </div>
-      <Image src="/footer.png" alt="footer" width={1900} height={100} className='w-screen' />
+      <Image src="/footer.png" alt="footer" width={1900} height={300} className='w-full' />
     </div>
   )
 }
