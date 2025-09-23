@@ -1,5 +1,8 @@
+'use client'
+
 import React from 'react'
 import Keyboard from './Keyboard'
+import FloatingMenu from './FloatingMenu'
 
 export default function Hero() {
   return (
@@ -14,6 +17,9 @@ export default function Hero() {
           </p>
         </div>
         <Keyboard />
+        <div className='flex flex-row justify-center'>
+          <FloatingMenu />
+        </div>
       </div>
     </div>
   )
