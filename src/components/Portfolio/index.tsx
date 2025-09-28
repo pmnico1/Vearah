@@ -10,6 +10,7 @@ import ProjectTags from '@/components/Portfolio/components/ProjectTags';
 import ProjectNavigation from '@/components/Portfolio/components/ProjectNavigation';
 import StatisticsFrames from '@/components/Portfolio/components/StatisticsFrames';
 import ClientLogos from '@/components/Portfolio/components/ClientLogos';
+import Background from '@/components/Portfolio/components/Background';
 
 export default function ProjectSection() {
   const [currentProject, setCurrentProject] = useState(0);
@@ -62,8 +63,9 @@ export default function ProjectSection() {
     <section
       ref={sectionRef}
       id="project-section"
-      className="h-screen relative snap-start overflow-hidden"
+      className="h-screen relative bg-[#010101] snap-start overflow-hidden"
     >
+      <Background />
       <SectionTitle titleOpacity={titleOpacity} />
 
       <ProjectTags
@@ -90,7 +92,8 @@ export default function ProjectSection() {
         showMainContent={showMainContent}
       />
 
-      <ClientLogos />
+      <ClientLogos
+      />
     </section>
   );
 }

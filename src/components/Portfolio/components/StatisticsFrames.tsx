@@ -25,10 +25,10 @@ export default function StatisticsFrames({ statisticsFrames, showMainContent }: 
                 ...(frame.position.left ? { x: 0 } : frame.position.right ? { x: 0 } : { y: 0 })
               }}
               transition={{ duration: 0.6, delay: frame.delay }}
-              className={`absolute ${frame.position.top ? `top-[${frame.position.top}]` : ''
-                } ${frame.position.bottom ? `bottom-[${frame.position.bottom}]` : ''
-                } ${frame.position.left ? `left-[${frame.position.left}]` : ''
-                } ${frame.position.right ? `right-[${frame.position.right}]` : ''
+              className={`absolute ${frame.position.top ? `top-72` : ''
+                } ${frame.position.bottom ? `bottom-40` : ''
+                } ${frame.position.left ? `left-64` : ''
+                } ${frame.position.right ? `right-40` : ''
                 } ${frame.id === 'experience' ? 'bg-[#010101] -translate-y-40' : ''
                 } box-border flex flex-col  gap-[10px] items-start overflow-hidden px-[40px] py-[30px] rounded-[20px] z-20`}
               style={frame.backgroundStyle}
