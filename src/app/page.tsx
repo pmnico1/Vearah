@@ -3,18 +3,29 @@ import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import Intro from "@/components/Intro";
 import Portfolio from "@/components/Portfolio";
-import { Lenis } from "lenis/react";
+import Lenis from "lenis/react";
 
 export default function Home() {
   return (
-    // <Lenis root>
     <div className="min-h-screen">
-      <Header />
-      <Hero />
-      <Intro />
-      <Portfolio />
-      <Footer />
+      <Lenis
+        root
+        options={{
+          lerp: 0.1,
+          duration: 1.2,
+          orientation: 'vertical',
+          gestureOrientation: 'vertical',
+          smoothWheel: true,
+          wheelMultiplier: 1,
+          touchMultiplier: 2,
+        }}
+      >
+        <Header />
+        <Hero />
+        <Intro />
+        <Portfolio />
+        <Footer />
+      </Lenis>
     </div>
-    // </Lenis>
   );
 }

@@ -67,3 +67,7 @@ body {
   order: 0;
   flex-grow: 1;
 }
+
+.snap-start {
+  scroll-snap-align: start;
+}
