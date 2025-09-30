@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import Intro from "@/components/Intro";
 import Portfolio from "@/components/Portfolio";
+import Process from "@/components/Process";
 import Lenis from "lenis/react";
 
 export default function Home() {
@@ -24,6 +25,7 @@ export default function Home() {
         <Hero />
         <Intro />
         <Portfolio />
+        <Process />
         <Footer />
       </Lenis>
     </div>
