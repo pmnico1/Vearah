@@ -3,7 +3,7 @@ import DecorativeGradient from '../../assets/svgs/DecorativeGradient'
 
 export default function Strategy() {
   return (
-    <div className="relative w-[1000px] h-[500px] mx-auto my-20">
+    <div className="relative w-[1000px] h-[500px] mx-auto my-20 group">
       {/* Main frame with radial gradient background */}
       <div
         className="w-full h-full rounded-[40px] relative overflow-hidden"
@@ -12,7 +12,7 @@ export default function Strategy() {
         }}
       >
         {/* Decorative gradient element */}
-        <div className="absolute bottom-0 left-0 w-full">
+        <div className="absolute bottom-0 left-0 w-full group-hover:opacity-100 opacity-0 transition-opacity duration-1000">
           <DecorativeGradient width="100%" height="96" />
         </div>
 
