@@ -8,6 +8,7 @@ import Promotion from "@/components/Promotion";
 import FAQ from "@/components/FAQ";
 import Lenis from "lenis/react";
 import Team from "@/components/Team";
+import Contact from "@/components/Contact";
 
 export default function Home() {
   return (
@@ -32,6 +33,7 @@ export default function Home() {
         <Promotion />
         <FAQ />
         <Team />
+        <Contact />
         <Footer />
       </Lenis>
     </div>
