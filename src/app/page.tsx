@@ -7,6 +7,7 @@ import Process from "@/components/Process";
 import Promotion from "@/components/Promotion";
 import FAQ from "@/components/FAQ";
 import Lenis from "lenis/react";
+import Team from "@/components/Team";
 
 export default function Home() {
   return (
@@ -30,6 +31,7 @@ export default function Home() {
         <Process />
         <Promotion />
         <FAQ />
+        <Team />
         <Footer />
       </Lenis>
     </div>
