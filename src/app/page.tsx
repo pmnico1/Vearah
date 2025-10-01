@@ -5,6 +5,7 @@ import Intro from "@/components/Intro";
 import Portfolio from "@/components/Portfolio";
 import Process from "@/components/Process";
 import Promotion from "@/components/Promotion";
+import FAQ from "@/components/FAQ";
 import Lenis from "lenis/react";
 
 export default function Home() {
@@ -28,6 +29,7 @@ export default function Home() {
         <Portfolio />
         <Process />
         <Promotion />
+        <FAQ />
         <Footer />
       </Lenis>
     </div>

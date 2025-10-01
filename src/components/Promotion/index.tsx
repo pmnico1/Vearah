@@ -26,9 +26,9 @@ export default function Promotion() {
           <p className='text-[20px] font-semibold p-1'>Partnership Beyond Projects</p>
           <p className='text-[16px] font-thin text-left p-1'>We stay to optimize, scale, and evolve products with clients. to help create long-term trust and measurable ROI.</p>
         </Card>
-        <div className="flex text-black font-[20px] flex-row justify-center items-center px-10 py-[30px] gap-[10px] w-[339px] h-[84px] bg-gradient-to-r from-[#87FFFF] to-[#16FF00] rounded-[32px] flex-none order-2 flex-grow-0 cursor-pointer hover:opacity-90 hover:scale-105 transition-all duration-300 ease-in-out my-16">
-          Book a free discovery call now
-        </div>
+      </div>
+      <div className="flex text-black font-[20px] flex-row justify-center items-center px-10 py-[30px] gap-[10px] w-[339px] h-[84px] bg-gradient-to-r from-[#87FFFF] to-[#16FF00] rounded-[32px] flex-none order-2 flex-grow-0 cursor-pointer hover:opacity-90 hover:scale-105 transition-all duration-300 ease-in-out my-16">
+        Book a free discovery call now
       </div>
     </div>
   )
