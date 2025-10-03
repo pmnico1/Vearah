@@ -20,7 +20,7 @@ export default function Discover() {
           </div>
           <p className='text-[40px]'>01</p>
         </div>
-        <Image src="/images/process/1.jpg" className='w-1/2 object-cover overflow-hidden rounded-l-[40px] z-50' alt="Discover" width={500} height={500} />
+        <Image src="/images/process/1.jpg" className='w-1/2 object-cover overflow-hidden rounded-l-[40px] z-30' alt="Discover" width={500} height={500} />
 
         <div className="absolute bottom-0 left-0 w-full group-hover:opacity-100 opacity-0 transition-opacity duration-1000">
           <DecorativeGradient width="100%" height="96" />
