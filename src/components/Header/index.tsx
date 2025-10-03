@@ -9,7 +9,7 @@ export default function Header() {
       <div className='flex gap-6'>
         <button>Our Projects</button>
         <button className="gradient-text">
-          Our Team
+          Read Our Manifesto
         </button>
         <button className="gradient-button">Book a free discovery call</button>
       </div>

@@ -1,13 +1,13 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 export default function Keyboard() {
   const [pressedKeys, setPressedKeys] = useState<Set<string>>(new Set())
   const [displayText, setDisplayText] = useState('')
-  const [inputText, setInputText] = useState('')
+  const [inputText, setInputText] = useState("Designing the Future of Digital Experiences")
   const [isAnimating, setIsAnimating] = useState(false)
-  const [animationSpeed, setAnimationSpeed] = useState(200) // milliseconds between key presses
+  const [animationSpeed, setAnimationSpeed] = useState(50) // milliseconds between key presses
 
   // Define keyboard layout organized by rows
   const keyboardLayout = [
@@ -18,6 +18,17 @@ export default function Keyboard() {
     // Bottom row
     ['Z', 'X', 'C', 'V', 'B', 'N', 'M']
   ]
+
+  // Auto-animate the initial text when component mounts
+  useEffect(() => {
+
+    // Start animation after a short delay to ensure component is fully mounted
+    const timer = setTimeout(() => {
+      startAnimation(inputText)
+    }, 500)
+
+    return () => clearTimeout(timer)
+  }, [])
 
   const handleKeyClick = (keyId: string) => {
     setPressedKeys(prev => {
@@ -30,37 +41,42 @@ export default function Keyboard() {
       return newPressed
     })
 
-    setDisplayText(prev => prev + keyId.toUpperCase())
+    // setDisplayText(prev => prev + keyId.toUpperCase())
   }
 
-  const clearText = () => {
-    setDisplayText('')
-    setPressedKeys(new Set())
-    setInputText('')
-  }
-
-  const startAnimation = () => {
-    if (!inputText.trim() || isAnimating) return
+  const startAnimation = (textToAnimate?: string) => {
+    const text = textToAnimate || inputText
+    if (!text.trim() || isAnimating) return
 
     setIsAnimating(true)
     setDisplayText('')
     setPressedKeys(new Set())
 
-    const text = inputText.toUpperCase().replace(/[^A-Z]/g, '') // Only keep letters
+    // Keep original case, only filter out non-letter characters except spaces
+    const processedText = text.replace(/[^A-Za-z\s]/g, '')
     let currentIndex = 0
 
     const animateNextKey = () => {
-      if (currentIndex >= text.length) {
+      if (currentIndex >= processedText.length) {
         setIsAnimating(false)
         return
       }
 
-      const currentChar = text[currentIndex]
+      const currentChar = processedText[currentIndex]
+
+      // Skip spaces in animation but add them to display text
+      if (currentChar === ' ') {
+        setDisplayText(prev => prev + ' ')
+        currentIndex++
+        setTimeout(animateNextKey, animationSpeed)
+        return
+      }
+
       const keyId = currentChar.toLowerCase()
 
       // Press the key
       setPressedKeys(prev => new Set(prev).add(keyId))
-      setDisplayText(prev => prev + currentChar)
+      setDisplayText(prev => prev + currentChar) // Use original case
 
       // Release the key after a short delay
       setTimeout(() => {
@@ -78,70 +94,12 @@ export default function Keyboard() {
     animateNextKey()
   }
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputText(e.target.value)
-  }
-
   return (
     <div className="flex flex-col items-center space-y-8">
-      {/* Text Input for Animation */}
-      <div className="w-full max-w-4xl">
-        <div className="bg-gray-800 rounded-lg p-6 border border-gray-700 mb-4">
-          <label className="block text-white text-sm font-medium mb-2">
-            Enter text to animate:
-          </label>
-          <div className="flex gap-2">
-            <input
-              type="text"
-              value={inputText}
-              onChange={handleInputChange}
-              placeholder="Type text here..."
-              className="flex-1 px-4 py-2 bg-gray-700 text-white rounded border border-gray-600 focus:border-blue-500 focus:outline-none"
-              disabled={isAnimating}
-            />
-            <button
-              onClick={startAnimation}
-              disabled={!inputText.trim() || isAnimating}
-              className="px-6 py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-600 disabled:cursor-not-allowed text-white rounded transition-colors"
-            >
-              {isAnimating ? 'Animating...' : 'Animate'}
-            </button>
-          </div>
-          <div className="mt-2 flex items-center gap-4">
-            <label className="text-white text-sm">
-              Speed:
-              <input
-                type="range"
-                min="50"
-                max="500"
-                value={animationSpeed}
-                onChange={(e) => setAnimationSpeed(Number(e.target.value))}
-                className="ml-2"
-                disabled={isAnimating}
-              />
-              <span className="ml-2 text-xs text-gray-400">
-                {animationSpeed}ms
-              </span>
-            </label>
-          </div>
-        </div>
-      </div>
 
       {/* Display text above keyboard */}
-      <div className="w-full max-w-4xl">
-        <div className="bg-gray-900 rounded-lg p-6 min-h-[100px] border border-gray-700">
-          <div className="text-white text-2xl font-mono">
-            {displayText || 'Click keys to type...'}
-          </div>
-          {displayText && (
-            <button
-              onClick={clearText}
-              className="mt-4 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded transition-colors"
-            >
-              Clear
-            </button>
-          )}
-        </div>
+      <div className="w-full max-w-4xl text-[48px] mb-36 text-center">
+        {displayText}
       </div>
 
       {/* Interactive Keyboard - HTML Components */}
@@ -188,15 +146,6 @@ export default function Keyboard() {
         </div>
       </div>
 
-      {/* Instructions */}
-      <div className="text-gray-400 text-sm text-center max-w-2xl">
-        <p className="mb-2">
-          <strong>Manual:</strong> Click on any key to activate it and add the letter to the text above.
-        </p>
-        <p>
-          <strong>Animation:</strong> Enter text in the input field above and click &quot;Animate&quot; to see the keyboard automatically type your text.
-        </p>
-      </div>
     </div>
   )
 }
