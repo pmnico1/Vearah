@@ -10,6 +10,25 @@ import Lenis from "lenis/react";
 import Team from "@/components/Team";
 import Contact from "@/components/Contact";
 import Service from "@/components/Service";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Vearah - Home",
+  description: "Welcome to Vearah - a creative digital agency that transforms ideas into exceptional digital experiences. Discover our innovative web design, development, and digital solutions.",
+  openGraph: {
+    title: "Vearah - Creative Digital Agency",
+    description: "Welcome to Vearah - a creative digital agency that transforms ideas into exceptional digital experiences.",
+    url: "https://vearah.com",
+    images: [
+      {
+        url: "/images/home-og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Vearah Homepage",
+      },
+    ],
+  },
+};
 
 export default function Home() {
   return (

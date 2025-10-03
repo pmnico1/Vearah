@@ -2,6 +2,25 @@ import React from 'react'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import Intro from '@/components/Intro'
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Vearah - Contact Us",
+  description: "Get in touch with Vearah for your next digital project. Fill out our contact form or reach out directly. We're here to help bring your ideas to life.",
+  openGraph: {
+    title: "Contact Vearah - Creative Digital Agency",
+    description: "Get in touch with Vearah for your next digital project. We're here to help bring your ideas to life.",
+    url: "https://vearah.com/contact",
+    images: [
+      {
+        url: "/images/contact-og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Contact Vearah",
+      },
+    ],
+  },
+};
 
 export default function Contact() {
   return (
