@@ -11,7 +11,7 @@ export default function Intro() {
         baseRotation={0}
         blurStrength={10}
       >
-        Every idea begins in the dark shapeless, silent, waiting. But a spark doesn’t come from nothing. It comes from fragments lines, circles, broken pieces that ask to be connected. The process of design is not seeing at once, but piecing light together.
+        &quot;Every idea begins in the dark shapeless, silent, waiting. But a spark doesn’t come from nothing. It comes from fragments lines, circles, broken pieces that ask to be connected. The process of design is not seeing at once, but piecing light together.&quot;
       </ScrollReveal>
     </div>
   )

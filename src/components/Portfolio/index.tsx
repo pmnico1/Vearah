@@ -74,11 +74,11 @@ export default function ProjectSection() {
         showTags={showTags}
       />
 
-      <ProjectNavigation
+      {/* <ProjectNavigation
         currentProject={currentProject}
         totalProjects={projects.length}
         showMainContent={showMainContent}
-      />
+      /> */}
 
       <ProjectCard
         project={currentProjectData}

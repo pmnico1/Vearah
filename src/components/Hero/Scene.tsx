@@ -1,12 +1,20 @@
 import * as THREE from 'three'
-import React, { Suspense, useRef } from 'react'
+import React, { Suspense, useRef, useState, useEffect } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { PerspectiveCamera, Environment, MeshDistortMaterial } from '@react-three/drei'
-
 
 export default function Scene() {
   const sphere = useRef<THREE.Mesh>(null)
   const light = useRef<THREE.PointLight>(null)
+  const [hovered, setHovered] = useState<boolean>(false)
+
+  // Change cursor on hovered state
+  useEffect(() => {
+    document.body.style.cursor =
+      `url('data:image/svg+xml;base64,${btoa(
+        '<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16" r="10" fill="#7DEC83"/></svg>'
+      )}'), auto`
+  }, [hovered])
 
   // Make the bubble float
   useFrame((state) => {
@@ -34,6 +42,8 @@ export default function Scene() {
         <mesh
           ref={sphere}
           scale={1}
+          onPointerOver={() => setHovered(true)}
+          onPointerOut={() => setHovered(false)}
         >
           <sphereGeometry args={[1, 64, 64]} />
           <MeshDistortMaterial
