@@ -9,6 +9,7 @@ import FAQ from "@/components/FAQ";
 import Lenis from "lenis/react";
 import Team from "@/components/Team";
 import Contact from "@/components/Contact";
+import Service from "@/components/Service";
 
 export default function Home() {
   return (
@@ -29,6 +30,7 @@ export default function Home() {
         <Hero />
         <Intro />
         <Portfolio />
+        <Service />
         <Process />
         <Promotion />
         <FAQ />
