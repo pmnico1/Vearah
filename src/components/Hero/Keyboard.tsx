@@ -98,8 +98,8 @@ export default function Keyboard() {
     <div className="flex flex-col items-center space-y-8">
 
       {/* Display text above keyboard */}
-      <div className="w-full max-w-4xl text-[48px] mb-36 text-center">
-        {displayText}
+      <div className="w-full h-[100px] max-w-4xl text-[48px] mb-48 text-center">
+        {' ' + displayText}
       </div>
 
       {/* Interactive Keyboard - HTML Components */}
