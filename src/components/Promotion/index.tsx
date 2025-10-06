@@ -9,7 +9,7 @@ export default function Promotion() {
         different</p>
       <p className='text-[20px] max-w-[600px] mx-auto py-5'>We are a team of designers, developers, and strategists who are passionate about creating beautiful and functional websites and applications.</p>
 
-      <div className='flex flex-wrap justify-center items-center gap-8 mx-32 my-20'>
+      <div className='flex flex-wrap justify-center items-center gap-8 mx-10 md:mx-32 my-20'>
         <Card>
           <p className='text-[20px] font-semibold p-1'>Global Standards with Local Sensitivity</p>
           <p className='text-[16px] font-thin text-left p-1'>We understand the nuance of cultural design, financial behaviors, and emerging markets.</p>

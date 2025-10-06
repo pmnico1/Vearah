@@ -17,11 +17,9 @@ export default function TeamCard({
 }: TeamCardProps) {
   return (
     <div
-      className="p-6 mx-auto shadow-lg border-t-2 border-x border-[#242424] flex flex-col justify-between items-start text-white transition-all duration-500 ease-out hover:scale-105 hover:shadow-2xl hover:border-white/20 animate-fade-in-up"
+      className="p-6 mx-auto h-[240px] w-full max-w-[500px] shadow-lg border-t-2 border-x border-[#242424] flex flex-col justify-between items-start text-white transition-all duration-500 ease-out hover:scale-105 hover:shadow-2xl hover:border-white/20 animate-fade-in-up"
       style={{
         boxSizing: 'border-box',
-        width: '513.33px',
-        height: '280px',
         background: 'linear-gradient(360deg, #010101 0%, #171717 100%)',
         borderRadius: '40px',
         flex: 'none',

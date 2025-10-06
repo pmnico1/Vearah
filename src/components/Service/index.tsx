@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 export default function Service() {
   return (
-    <div className="flex md:flex-row flex-col min-h-screen text-white">
+    <div className="flex md:flex-row flex-col min-h-screen text-white mt-40 md:mt-0">
       {/* Left side - Card image background */}
       <div className="min-h-[300px] w-full md:w-1/2 relative overflow-hidden">
         <Image

@@ -24,7 +24,7 @@ export default function FloatingMenu() {
   return (
     <div className="z-50">
       {/* Navigation Menu */}
-      <div className="fixed bottom-[30px] left-1/2 transform -translate-x-1/2 z-50">
+      <div className="fixed bottom-[30px] left-1/2 transform -translate-x-1/2 z-50 w-fu">
         <div className="bg-gradient-to-t from-[#010101] to-[#171717] rounded-full p-2 border border-white/10 shadow-2xl">
           <div className="flex items-center justify-center gap-2 min-w-[400px]">
             {/* Book Button - Active State */}

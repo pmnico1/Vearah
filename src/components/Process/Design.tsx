@@ -5,7 +5,7 @@ import DecorativeGradient from '@/assets/svgs/DecorativeGradient'
 
 export default function Design() {
   return (
-    <div className="relative max-w-[1000px] h-[500px] w-full mx-auto my-10 group ">
+    <div className="relative max-w-[1000px] p-2 h-[400px] md:h-[500px] w-full mx-auto my-10 group ">
 
       <div
         className="w-full h-full flex justify-between rounded-[40px] relative overflow-hidden border-t-2 border-[#171e25] border-b"

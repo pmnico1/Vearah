@@ -103,7 +103,7 @@ export default function Keyboard() {
       </div>
 
       {/* Interactive Keyboard - HTML Components */}
-      <div className="rounded-2xl p-6 shadow-2xl border-t-2 border-zinc-800">
+      <div className="rounded-2xl p-6 shadow-2xl border-t-2 border-zinc-800 w-full overflow-hidden">
         <div className="space-y-2">
           {keyboardLayout.map((row, rowIndex) => (
             <div
