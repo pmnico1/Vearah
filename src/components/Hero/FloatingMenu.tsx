@@ -10,7 +10,7 @@ export default function FloatingMenu() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleBookCall = () => {
-    window.open('https://calendly.com', '_blank');
+    window.open('https://calendly.com/met4guy', '_blank');
   };
 
   const handleChat = () => {
@@ -46,12 +46,14 @@ export default function FloatingMenu() {
             </motion.button>
 
             {/* Chat Button - Active State */}
-            <CTAButton isActive onClick={handleChat}>
-              <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4" />
-                <span className="text-base font-['Urbanist',_sans-serif] font-semibold whitespace-nowrap">Let`s chat</span>
-              </div>
-            </CTAButton>
+            <a href="/contact">
+              <CTAButton isActive>
+                <div className="flex items-center gap-2">
+                  <Mail className="w-4 h-4" />
+                  <span className="text-base font-['Urbanist',_sans-serif] font-semibold whitespace-nowrap">Let`s chat</span>
+                </div>
+              </CTAButton>
+            </a>
           </div>
         </div>
       </div>

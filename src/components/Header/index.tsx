@@ -7,6 +7,9 @@ export default function Header() {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
   }
+  const handleBookCall = () => {
+    window.open('https://calendly.com/met4guy', '_blank');
+  };
 
   return (
     <header className="flex justify-between items-center px-4 sm:px-8 py-2 relative">
@@ -21,7 +24,8 @@ export default function Header() {
         <button className="gradient-text">
           Read Our Manifesto
         </button>
-        <button className="gradient-button">Book a free discovery call</button>
+        <button className="gradient-button" onClick={() => handleBookCall()}
+        >Book a free discovery call</button>
       </nav>
 
       {/* Mobile Menu Button */}
@@ -39,21 +43,21 @@ export default function Header() {
       {isMenuOpen && (
         <div className="absolute top-full left-0 right-0 bg-black/95 backdrop-blur-sm border-t border-white/10 md:hidden z-50">
           <nav className="flex flex-col p-4 space-y-4">
-            <button 
+            <button
               className="text-left py-2 hover:opacity-80 transition-opacity"
               onClick={() => setIsMenuOpen(false)}
             >
               Our Projects
             </button>
-            <button 
+            <button
               className="gradient-text text-left py-2"
               onClick={() => setIsMenuOpen(false)}
             >
               Read Our Manifesto
             </button>
-            <button 
+            <button
               className="gradient-button w-full py-3 mt-2"
-              onClick={() => setIsMenuOpen(false)}
+              onClick={() => handleBookCall()}
             >
               Book a free discovery call
             </button>
