@@ -35,7 +35,7 @@ export default function ClientLogos() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 2.5 }}
-        className="absolute -bottom-5 left-1/2 -translate-x-1/2 w-full max-w-[1400px] px-8 z-20"
+        className="w-full px-8 z-20 mb-32"
       >
         <div className="flex gap-[30px] items-center justify-center">
           {clientLogos.map((client, index) => (

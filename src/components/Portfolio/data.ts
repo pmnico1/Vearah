@@ -4,19 +4,19 @@ export const projects: Project[] = [
   {
     title: 'Lumo',
     subtitle: 'AI-Power Learning Assistant',
-    image: 'images/portfolio/1.png',
+    image: '/images/portfolio/1.png',
     tags: ['Healthtech & Wearables', 'AI & Edutech', 'Blockchain & Finance', 'AI & Edutech', 'Blockchain & Finance']
   },
   {
     title: 'FinFlow',
     subtitle: 'Smart Financial Dashboard',
-    image: 'images/portfolio/1.png',
+    image: '/images/portfolio/1.png',
     tags: ['Blockchain & Finance', 'AI & Edutech', 'Healthtech & Wearables', 'Blockchain & Finance', 'AI & Edutech']
   },
   {
     title: 'MediTrack',
     subtitle: 'Healthcare Management System',
-    image: 'images/portfolio/1.png',
+    image: '/images/portfolio/1.png',
     tags: ['Healthtech & Wearables', 'Blockchain & Finance', 'AI & Edutech', 'Healthtech & Wearables', 'AI & Edutech']
   }
 ];
