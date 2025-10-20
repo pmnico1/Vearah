@@ -25,11 +25,11 @@ export default function ProcessCard({
   return (
     <div
       ref={cardRef}
-      className="relative max-w-[1000px] h-[400px] p-2 md:h-[500px] w-full mx-auto group perspective-1000"
+      className="relative max-w-[1000px] h-[400px] p-2 md:h-[500px] w-full mx-auto group perspective-1000 "
       style={{ transformStyle: 'preserve-3d' }}
     >
       <div
-        className="w-full h-full flex justify-between rounded-[40px] relative overflow-hidden border-t-2 border-[#171e25] border-b backdrop-blur-sm"
+        className="w-full h-full flex justify-between rounded-[40px] relative overflow-hidden border-t-2 bg-[#010101] border-[#171e25] border-b backdrop-blur-2xl"
         style={{
           background: 'radial-gradient(55.32% 44% at 51.71% 0%, rgba(129, 187, 255, 0.3) 0%, rgba(0, 0, 0, 0) 100%)',
           boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1)'
