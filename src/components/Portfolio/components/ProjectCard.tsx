@@ -2,28 +2,30 @@
 
 import { Project } from '@/components/Portfolio/types';
 import Image from 'next/image';
+import { useState } from 'react';
+import ProjectTags from './ProjectTags';
+import StatisticsFrames from './StatisticsFrames';
+import { statisticsFrames } from '@/components/Portfolio/data';
 
 interface ProjectCardProps {
   project: Project;
-  onMouseEnter: () => void;
-  onMouseLeave: () => void;
 }
 
 export default function ProjectCard({
-  project,
-  onMouseEnter,
-  onMouseLeave
+  project
 }: ProjectCardProps) {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <div
       key={project.title}
       className="relative bg-[#131315] h-[550px] left-1/2 transform -translate-x-1/2 rounded-[50px] w-[700px] z-30"
-      onPointerEnter={(e) => { e.preventDefault(); onMouseEnter() }}
-      onPointerLeave={(e) => { e.preventDefault(); onMouseLeave() }}
+      onPointerEnter={() => setIsHovered(true)}
+      onPointerLeave={() => setIsHovered(false)}
     >
       <div className="box-border flex gap-[10px] h-[550px] items-center overflow-hidden p-[10px] relative w-[700px]">
         <div className="flex flex-col gap-[10px] grow h-full items-start min-h-px min-w-px relative shrink-0">
-          <div className="bg-[#151518] h-[450px] overflow-hidden relative rounded-[40px] shrink-0 w-full">
+          <div className="h-[450px] overflow-hidden relative rounded-[40px] shrink-0 w-full">
             <div className="absolute h-[544px] left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] w-[696px]">
               <Image
                 alt={project.title}
@@ -34,7 +36,7 @@ export default function ProjectCard({
               />
             </div>
           </div>
-          <div className="basis-0 grow min-h-px min-w-px relative rounded-[40px] shrink-0 w-full bg-gradient-to-r from-[#151518] to-[#151518]">
+          <div className="basis-0 grow min-h-px min-w-px relative rounded-[40px] shrink-0 w-full overflow-hidden ">
             <div className="flex flex-row items-center justify-center overflow-hidden relative size-full">
               <div className="box-border flex gap-[10px] items-center justify-center leading-normal not-italic px-[40px] py-[10px] relative size-full text-[18px] text-nowrap whitespace-pre">
                 <p className="font-['Urbanist',_sans-serif] font-semibold relative shrink-0 text-[#a0ff7b]">
@@ -48,7 +50,19 @@ export default function ProjectCard({
           </div>
         </div>
       </div>
-      <div className="absolute inset-[-2px] pointer-events-none shadow-[0px_10px_30px_0px_inset_#000000]" />
+
+      {/* Show ProjectTags and StatisticsFrames on hover */}
+      {isHovered && (
+        <>
+          <ProjectTags
+            project={project}
+          />
+          <StatisticsFrames
+            statisticsFrames={statisticsFrames}
+          />
+        </>
+      )}
+
       <div aria-hidden="true" className="absolute border-4 border-[#78ff42] border-solid inset-[-2px] pointer-events-none rounded-[52px]" />
     </div>
   );

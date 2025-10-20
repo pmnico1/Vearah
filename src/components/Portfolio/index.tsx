@@ -105,23 +105,11 @@ export default function ProjectSection() {
               <div className='w-full py-12 sm:py-16'>
                 <ProjectCard
                   project={project}
-                  onMouseEnter={() => setShowTags(true)}
-                  onMouseLeave={() => setShowTags(false)}
-                />
-                <ProjectTags
-                  project={project}
-                  showMainContent={true}
-                  showTags={showTags}
-                />
-                <StatisticsFrames
-                  statisticsFrames={statisticsFrames}
-                  showMainContent={showTags}
                 />
               </div>
             </div>
           ))}
         </div>
-
       </div>
       <ClientLogos />
     </div>
