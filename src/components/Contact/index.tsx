@@ -1,6 +1,10 @@
+'use client';
 import React from 'react'
 
 export default function Contact() {
+  const handleBookCall = () => {
+    window.open('https://calendly.com/met4guy', '_blank');
+  };
   return (
     <div className='flex flex-col justify-center items-center w-full text-white text-center my-40 p-2'>
       <p className=" text-sm font-medium mb-4">Contact US</p>
@@ -16,16 +20,18 @@ export default function Contact() {
             <input type="text" placeholder='Email' className='outline-none w-full' />
           </div>
         </div>
-        <div className='flex justify-between max-w-[572px] items-center w-full'>
-          <div
+        <div className='flex justify-between max-w-[572px] items-center w-full cursor-pointer'>
+          <a
+            href="/contact"
             className={`relative border-t-[2px] bg-[#090808] border-[#0d0e0d] rounded-[40px] flex flex-col items-start px-6 md:px-16 py-6 overflow-hidden `}
           >
             Request quick email
-          </div>
+          </a>
           <div
             className={`relative border-t-[2px] bg-[#090808] border-[#0d0e0d] rounded-[40px] flex flex-col items-start px-6 md:px-16 py-6 overflow-hidden `}
+            onClick={() => handleBookCall()}
           >
-            Request quick email
+            Request quick call
           </div>
 
         </div>
