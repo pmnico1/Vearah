@@ -12,20 +12,46 @@ export default function Header() {
   };
 
   return (
-    <header className="flex justify-between items-center px-4 sm:px-8 py-2 relative">
+    <header className="flex justify-between items-center px-4 md:px-[100px] py-5 relative">
       {/* Logo */}
-      <div className="text-xl sm:text-2xl font-bold">
+      <div style={{
+        fontFamily: 'Urbanist',
+        fontWeight: 600,
+        fontSize: '18px',
+        lineHeight: '100%',
+        letterSpacing: '0%'
+      }}>
         Vearah
       </div>
 
       {/* Desktop Navigation */}
-      <nav className="hidden md:flex gap-6">
-        <button className="hover:opacity-80 transition-opacity">Our Projects</button>
-        <button className="gradient-text">
+      <nav className="hidden md:flex gap-[30px]">
+        <button className="hover:opacity-80 transition-opacity" style={{
+          fontFamily: 'Urbanist',
+          fontWeight: 400,
+          fontStyle: 'normal',
+          fontSize: '16px',
+          lineHeight: '100%',
+          letterSpacing: '0%',
+          textAlign: 'center'
+        }}>Case Study</button>
+        <button
+          className="gradient-text"
+          style={{
+            fontFamily: 'Urbanist',
+            fontWeight: '400',
+            fontSize: '16px',
+            letterSpacing: '-2%',
+          }}
+        >
           Read Our Manifesto
         </button>
-        <button className="gradient-button" onClick={() => handleBookCall()}
-        >Book a free discovery call</button>
+        <button className="py-[14px] px-[20px] rounded-[7px] bg-[#16FF00]" style={{
+          fontWeight: '600',
+          color: '#000000',
+          fontSize: '16px'
+        }} onClick={() => handleBookCall()}
+        >Book a call</button>
       </nav>
 
       {/* Mobile Menu Button */}
@@ -40,30 +66,32 @@ export default function Header() {
       </button>
 
       {/* Mobile Navigation Menu */}
-      {isMenuOpen && (
-        <div className="absolute top-full left-0 right-0 bg-black/95 backdrop-blur-sm border-t border-white/10 md:hidden z-50">
-          <nav className="flex flex-col p-4 space-y-4">
-            <button
-              className="text-left py-2 hover:opacity-80 transition-opacity"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Our Projects
-            </button>
-            <button
-              className="gradient-text text-left py-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Read Our Manifesto
-            </button>
-            <button
-              className="gradient-button w-full py-3 mt-2"
-              onClick={() => handleBookCall()}
-            >
-              Book a free discovery call
-            </button>
-          </nav>
-        </div>
-      )}
-    </header>
+      {
+        isMenuOpen && (
+          <div className="absolute top-full left-0 right-0 bg-black/95 backdrop-blur-sm border-t border-white/10 md:hidden z-50">
+            <nav className="flex flex-col p-4 space-y-4">
+              <button
+                className="text-left py-2 hover:opacity-80 transition-opacity"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Our Projects
+              </button>
+              <button
+                className="gradient-text text-left py-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Read Our Manifesto
+              </button>
+              <button
+                className="gradient-button w-full py-3 mt-2"
+                onClick={() => handleBookCall()}
+              >
+                Book a free discovery call
+              </button>
+            </nav>
+          </div>
+        )
+      }
+    </header >
   )
 }
