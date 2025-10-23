@@ -1,8 +1,30 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
+import { gsap } from 'gsap'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const headerRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    if (headerRef.current) {
+      // Set initial state - centered with 90vh width and opacity 0
+      gsap.set(headerRef.current, {
+        width: '90vw',
+        margin: '0 auto',
+        opacity: 0
+      })
+
+      // Animate to full width and opacity 1 while maintaining center origin
+      gsap.to(headerRef.current, {
+        width: '100%',
+        opacity: 1,
+        duration: 1,
+        ease: 'power2.out',
+        delay: 0.1
+      })
+    }
+  }, [])
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
@@ -13,7 +35,10 @@ export default function Header() {
   };
 
   return (
-    <header className="flex justify-between items-center px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 py-4 md:py-5 relative">
+    <header
+      ref={headerRef}
+      className="flex justify-between items-center px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 py-4 md:py-5 relative opacity-0"
+    >
       {/* Logo */}
       <div className="text-sm sm:text-base md:text-lg font-semibold" style={{
         fontFamily: 'Urbanist',
