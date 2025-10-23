@@ -98,7 +98,7 @@ export default function Keyboard() {
     <div className="flex flex-col items-center space-y-8">
 
       {/* Display text above keyboard */}
-      <div className="w-full h-[100px] max-w-4xl text-[48px] mb-48 text-center">
+      <div className="w-full h-[100px] max-w-4xl text-[48px] mb-48 text-center font-medium" style={{ fontWeight: '500' }}>
         {' ' + displayText}
       </div>
 

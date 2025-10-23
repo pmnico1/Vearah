@@ -9,9 +9,9 @@ import { OrbitControls } from '@react-three/drei'
 
 export default function Hero() {
   return (
-    <div className="min-h-screen relative flex items-center justify-center">
+    <div className="min-h-screen relative flex items-start justify-center">
       <div className="w-full max-w-6xl">
-        <h1 className="text-[24px] text-center text-white mb-5">
+        <h1 className="text-[24px] text-center text-white mb-10 mt-[120px]" style={{ fontWeight: '400' }}>
           How the story begins
         </h1>
         <div className='w-full h-full absolute -top-5 left-0'>
