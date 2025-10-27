@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 
 interface TeamCardProps {
   name: string
@@ -31,7 +32,19 @@ export default function TeamCard({
       {/* Personal Information Section */}
       <div className="flex items-center mb-6 animate-slide-in-left">
         {/* Avatar */}
-        <div className="w-12 h-12 bg-white rounded-full flex-shrink-0 mr-4 transition-all duration-300 hover:scale-110 hover:shadow-lg"></div>
+        <div className="w-12 h-12 bg-white rounded-full flex-shrink-0 mr-4 transition-all duration-300 hover:scale-110 hover:shadow-lg overflow-hidden">
+          {avatar ? (
+            <Image
+              src={avatar}
+              alt={`${name} avatar`}
+              width={48}
+              height={48}
+              className="w-full h-full object-cover"
+            />
+          ) : (
+            <div className="w-full h-full bg-gray-400"></div>
+          )}
+        </div>
 
         {/* Name and Title */}
         <div className="animate-fade-in-right">
