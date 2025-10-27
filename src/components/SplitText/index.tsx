@@ -10,6 +10,7 @@ export interface SplitTextProps {
   text: string;
   className?: string;
   delay?: number;
+  delayT?: number;
   duration?: number;
   ease?: string | ((t: number) => number);
   splitType?: 'chars' | 'words' | 'lines' | 'words, chars';
@@ -26,7 +27,7 @@ const SplitText: React.FC<SplitTextProps> = ({
   text,
   className = '',
   delay = 100,
-  duration = 0.6,
+  duration = 0.4,
   ease = 'power3.out',
   splitType = 'words',
   from = { opacity: 0, y: 40 },
@@ -34,6 +35,7 @@ const SplitText: React.FC<SplitTextProps> = ({
   threshold = 0.1,
   rootMargin = '-100px',
   tag = 'p',
+  delayT = '0.2',
   textAlign = 'center',
   onLetterAnimationComplete
 }) => {
@@ -99,8 +101,12 @@ const SplitText: React.FC<SplitTextProps> = ({
             { ...from },
             {
               ...to,
+              onStart: () => {
+                el.classList.remove('hiddenEl')
+              },
               duration,
               ease,
+              delay: delayT,
               stagger: delay / 1000,
               scrollTrigger: {
                 trigger: el,
@@ -154,7 +160,7 @@ const SplitText: React.FC<SplitTextProps> = ({
       wordWrap: 'break-word',
       willChange: 'transform, opacity'
     };
-    const classes = `split-parent overflow-hidden inline-block whitespace-normal ${className}`;
+    const classes = `split-parent overflow-hidden inline-block whitespace-normal hiddenEl ${className}`;
     switch (tag) {
       case 'h1':
         return (

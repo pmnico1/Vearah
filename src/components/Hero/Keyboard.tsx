@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import SplitText from '@/components/SplitText'
 
 export default function Keyboard() {
@@ -31,15 +31,15 @@ export default function Keyboard() {
   }
 
   return (
-    <div className="flex flex-col items-center space-y-8">
+    <div className="relative flex flex-col items-center space-y-8">
 
       {/* Display text above keyboard */}
-      <div className="w-full h-[100px] max-w-4xl text-[48px] mb-48 text-center font-medium" style={{ fontWeight: '500' }}>
-        <SplitText delay={200} duration={1} text='Designing the Future of Digital Experiences' />
+      <div className="max-w-[700px] h-[100px] text-white text-[48px] mb-[370px] text-center font-medium leading-14 tracking-[0.32rem] ">
+        <SplitText delay={200} duration={0.4} delayT={1.1} text='Designing the Future of Digital Experiences' />
       </div>
 
       {/* Interactive Keyboard - HTML Components */}
-      <div className="rounded-2xl p-6 shadow-2xl border-t-2 border-zinc-800 w-full md:w-fit overflow-hidden">
+      <div className="rounded-2xl px-6 pt-10 pb-40 shadow-2xl border border-zinc-900 w-full md:w-fit overflow-hidden">
         <div className="space-y-2">
           {keyboardLayout.map((row, rowIndex) => (
             <div
@@ -57,7 +57,7 @@ export default function Keyboard() {
                     onClick={() => handleKeyClick(keyId)}
                     disabled={false}
                     className={`
-                      relative w-12 h-12 md:w-20 md:h-16 rounded-lg
+                      relative w-12 h-12 md:w-20 md:h-16 xl:w-[129px] xl:h-20 rounded-lg
                       font-bold text-lg sm:text-xl
                       transition-all duration-200 ease-in-out
                       transform active:scale-95
@@ -80,6 +80,15 @@ export default function Keyboard() {
             </div>
           ))}
         </div>
+      </div>
+      <div className="absolute bottom-0 inset-0 rounded-[40px] opacity-0 group-hover:opacity-100 z-50 transition-opacity duration-500 pointer-events-none">
+        <div
+          className="absolute inset-0 rounded-[40px]"
+          style={{
+            background: 'radial-gradient(circle at center, rgba(129, 187, 255, 0.1) 0%, transparent 70%)',
+            filter: 'blur(20px)'
+          }}
+        />
       </div>
 
     </div>

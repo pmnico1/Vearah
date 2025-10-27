@@ -37,7 +37,7 @@ export default function Header() {
   return (
     <header
       ref={headerRef}
-      className="flex justify-between items-center px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 py-4 md:py-5 relative opacity-0"
+      className="flex justify-between items-center px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 py-4 md:py-4 relative opacity-0"
     >
       {/* Logo */}
       <div className="text-sm sm:text-base md:text-lg font-semibold" style={{
