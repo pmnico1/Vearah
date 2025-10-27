@@ -38,7 +38,7 @@ export default function ProjectCard({
           </div>
           <div className="basis-0 grow min-h-px min-w-px relative rounded-[40px] shrink-0 w-full overflow-hidden ">
             <div className="flex flex-row items-center justify-center overflow-hidden relative size-full">
-              <div className="box-border flex gap-[10px] items-center justify-center leading-normal not-italic px-[40px] py-[10px] relative size-full text-[18px] text-nowrap whitespace-pre">
+              <div className="box-border rounded-full bg-[#151518] flex gap-[10px] items-center justify-center leading-normal not-italic px-[40px] py-[10px] relative size-full text-[18px] text-nowrap whitespace-pre">
                 <p className="font-['Urbanist',_sans-serif] font-semibold relative shrink-0 text-[#a0ff7b]">
                   {project.title}
                 </p>
@@ -62,8 +62,6 @@ export default function ProjectCard({
           />
         </>
       )}
-
-      <div aria-hidden="true" className="absolute border-4 border-[#78ff42] border-solid inset-[-2px] pointer-events-none rounded-[52px]" />
     </div>
   );
 }

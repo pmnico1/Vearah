@@ -3,11 +3,9 @@
 import React, { useLayoutEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { projects, statisticsFrames } from '@/components/Portfolio/data';
+import { projects } from '@/components/Portfolio/data';
 import SectionTitle from '@/components/Portfolio/components/SectionTitle';
 import ProjectCard from '@/components/Portfolio/components/ProjectCard';
-import ProjectTags from '@/components/Portfolio/components/ProjectTags';
-import StatisticsFrames from '@/components/Portfolio/components/StatisticsFrames';
 import ClientLogos from '@/components/Portfolio/components/ClientLogos';
 import Background from '@/components/Portfolio/components/Background';
 

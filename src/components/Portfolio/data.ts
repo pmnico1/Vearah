@@ -2,22 +2,22 @@ import { Project, StatisticsFrame } from './types';
 
 export const projects: Project[] = [
   {
-    title: 'Lumo',
-    subtitle: 'AI-Power Learning Assistant',
+    title: 'Urganz',
+    subtitle: 'SaaS EHR System',
     image: '/images/portfolio/1.png',
-    tags: ['Healthtech & Wearables', 'AI & Edutech', 'Blockchain & Finance', 'AI & Edutech', 'Blockchain & Finance']
+    tags: ['Healthtech & Wearables', 'SaaS Platform', 'Medical Data', 'AI Integration', 'Cloud System']
   },
   {
-    title: 'FinFlow',
-    subtitle: 'Smart Financial Dashboard',
-    image: '/images/portfolio/1.png',
-    tags: ['Blockchain & Finance', 'AI & Edutech', 'Healthtech & Wearables', 'Blockchain & Finance', 'AI & Edutech']
+    title: 'Ox',
+    subtitle: 'Metaverse Fintech App',
+    image: '/images/portfolio/2.png',
+    tags: ['Blockchain & Finance', 'Metaverse', 'AI & Analytics', 'Crypto Payments', 'Virtual Economy']
   },
   {
-    title: 'MediTrack',
-    subtitle: 'Healthcare Management System',
-    image: '/images/portfolio/1.png',
-    tags: ['Healthtech & Wearables', 'Blockchain & Finance', 'AI & Edutech', 'Healthtech & Wearables', 'AI & Edutech']
+    title: 'Avanza',
+    subtitle: '3D Avatar Website',
+    image: '/images/portfolio/3.png',
+    tags: ['Web 3D', 'AI & Design', 'Interactive Experience', 'Avatar Customization', 'Frontend Innovation']
   }
 ];
 
