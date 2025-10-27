@@ -1,17 +1,55 @@
-import React from 'react'
-import Image from 'next/image'
+'use client'
+import React, { useEffect, useRef } from 'react'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
 
 export default function Service() {
+  const sectionRef = useRef<HTMLDivElement>(null)
+  const textContainerRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const textItems = textContainerRef.current?.children
+    const section = sectionRef.current
+    if (!textItems || !section) return
+
+    // Set initial state - position items above and make them transparent
+    gsap.set(textItems, {
+      opacity: 0,
+      y: -30
+    })
+
+    // Animate each item from top to bottom with stagger when section enters viewport
+    gsap.to(textItems, {
+      opacity: 1,
+      y: 0,
+      stagger: 0.15, // Delay between each item
+      duration: 0.8,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: section,
+        start: "top 80%", // Start animation when top of section is at 80% from top of viewport
+        toggleActions: "play none none none"
+      }
+    })
+
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill())
+    }
+  }, [])
+
   return (
-    <div className="flex md:flex-row flex-col min-h-screen text-white mt-40 md:mt-0">
-      {/* Left side - Card image background */}
+    <div ref={sectionRef} className="flex md:flex-row flex-col min-h-screen text-white mt-40 md:mt-0">
+      {/* Left side - Card video background */}
       <div className="min-h-[300px] w-full md:w-1/2 relative overflow-hidden">
-        <Image
-          src="/images/card.png"
-          alt="Specialization background"
-          fill
-          className="object-cover"
-          priority
+        <video
+          src="/images/card.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
         />
       </div>
 
@@ -21,7 +59,7 @@ export default function Service() {
           Area of Specialization
         </h2>
 
-        <div className="space-y-1 text-[48px] text-zinc-500 ">
+        <div ref={textContainerRef} className="space-y-1 text-[48px] text-zinc-500 ">
           <div className="hover:text-white transition-all duration-500">
             Research & Design
           </div>
