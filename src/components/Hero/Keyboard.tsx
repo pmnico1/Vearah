@@ -1,10 +1,14 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
+import { gsap } from 'gsap'
 import SplitText from '@/components/SplitText'
 
 export default function Keyboard() {
   const [pressedKeys, setPressedKeys] = useState<Set<string>>(new Set())
+  const keyboardContainerRef = useRef<HTMLDivElement>(null)
+  const borderRef = useRef<HTMLDivElement>(null)
+  const keysRef = useRef<(HTMLButtonElement | null)[]>([])
 
   // Define keyboard layout organized by rows
   const keyboardLayout = [
@@ -26,9 +30,74 @@ export default function Keyboard() {
       }
       return newPressed
     })
-
-    // setDisplayText(prev => prev + keyId.toUpperCase())
   }
+
+  useEffect(() => {
+    const keys = keysRef.current.filter(Boolean) as HTMLButtonElement[]
+
+    if (keys.length === 0) return
+
+    // Set initial state for keys
+    gsap.set(keys, {
+      scale: 1.2,
+      opacity: 0
+    })
+
+    // Set initial state for container and border
+    if (keyboardContainerRef.current) {
+      gsap.set(keyboardContainerRef.current, {
+        opacity: 0,
+        scale: 1.2
+      })
+    }
+
+    // Create timeline with 1.3s initial delay
+    const tl = gsap.timeline({
+      delay: 1.3
+    })
+
+    // Animate border/container first (scale from 120% to 100%)
+    if (keyboardContainerRef.current) {
+      tl.to(keyboardContainerRef.current, {
+        scale: 1,
+        opacity: 1,
+        duration: 0.5,
+        ease: 'power2.out'
+      }, 0)
+    }
+
+    // Create array of keys with their positions
+    const keysWithDistance = keys.map(key => {
+      const keyData = key.dataset
+      const rowIndex = parseInt(keyData.rowIndex || '0')
+      const keyIndex = parseInt(keyData.keyIndex || '0')
+      const rowLength = parseInt(keyData.rowLength || '0')
+
+      const centerKey = Math.floor(rowLength / 2)
+      const distanceFromCenter = Math.abs(keyIndex - centerKey)
+
+      return { key, rowIndex, keyIndex, distanceFromCenter }
+    })
+
+    // Sort by distance so center keys animate first
+    keysWithDistance.sort((a, b) => a.distanceFromCenter - b.distanceFromCenter)
+
+    // Animate center keys first, then spread outward
+    keysWithDistance.forEach(({ key, distanceFromCenter }) => {
+      const delay = distanceFromCenter * 0.025 // 25ms stagger per distance from center
+
+      tl.to(key, {
+        scale: 1,
+        opacity: 1,
+        duration: 0.35,
+        ease: 'back.out(1.3)'
+      }, delay)
+    })
+
+    return () => {
+      tl.kill()
+    }
+  }, [])
 
   return (
     <div className="relative flex flex-col items-center space-y-8">
@@ -39,21 +108,31 @@ export default function Keyboard() {
       </div>
 
       {/* Interactive Keyboard - HTML Components */}
-      <div className="rounded-2xl px-6 pt-10 pb-40 shadow-2xl border border-zinc-900 w-full md:w-fit overflow-hidden">
-        <div className="space-y-2">
+      <div
+        ref={keyboardContainerRef}
+        className="rounded-2xl px-6 pt-10 pb-40 shadow-2xl border opacity-0 border-zinc-900 w-full md:w-fit overflow-hidden"
+      >
+        <div className="space-y-2" ref={borderRef}>
           {keyboardLayout.map((row, rowIndex) => (
             <div
               key={rowIndex}
               className={`flex justify-center gap-2 ${rowIndex === 1 ? 'ml-7' : rowIndex === 2 ? 'ml-2' : ''
                 }`}
             >
-              {row.map((letter) => {
+              {row.map((letter, keyIndex) => {
                 const keyId = letter.toLowerCase()
                 const isPressed = pressedKeys.has(keyId)
 
                 return (
                   <button
                     key={letter}
+                    ref={el => {
+                      const index = rowIndex * 100 + keyIndex
+                      keysRef.current[index] = el
+                    }}
+                    data-row-index={rowIndex}
+                    data-key-index={keyIndex}
+                    data-row-length={row.length}
                     onClick={() => handleKeyClick(keyId)}
                     disabled={false}
                     className={`
