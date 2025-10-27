@@ -7,6 +7,7 @@ import Scene from './Scene'
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
 import SplitText from '@/components/SplitText'
+import DecorativeGradient from '@/assets/svgs/DecorativeGradient'
 export default function Hero() {
   return (
     <div className="min-h-screen relative flex items-start justify-center">
@@ -29,7 +30,9 @@ export default function Hero() {
         <div className='flex flex-row justify-center'>
           <FloatingMenu />
         </div>
-
+        <div className="absolute bottom-0 left-0 w-full  opacity-50">
+          <DecorativeGradient width="100%" height="96" />
+        </div>
       </div>
     </div>
   )

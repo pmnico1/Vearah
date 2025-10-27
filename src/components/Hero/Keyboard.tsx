@@ -81,15 +81,6 @@ export default function Keyboard() {
           ))}
         </div>
       </div>
-      <div className="absolute bottom-0 inset-0 rounded-[40px] opacity-0 group-hover:opacity-100 z-50 transition-opacity duration-500 pointer-events-none">
-        <div
-          className="absolute inset-0 rounded-[40px]"
-          style={{
-            background: 'radial-gradient(circle at center, rgba(129, 187, 255, 0.1) 0%, transparent 70%)',
-            filter: 'blur(20px)'
-          }}
-        />
-      </div>
 
     </div>
   )
