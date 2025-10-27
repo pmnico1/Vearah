@@ -14,7 +14,7 @@ export default function Promotion() {
       <p className='text-[40px] max-w-[500px] mx-auto px-10'>What makes us different</p>
       <p className='text-[20px] max-w-[600px] mx-auto py-5'>We are a team of designers, developers, and strategists who are passionate about creating beautiful and functional websites and applications.</p>
 
-      <div className='flex flex-wrap justify-center items-center gap-8 mx-10 md:mx-32 my-20'>
+      <div className='flex flex-wrap justify-center items-center gap-12 mx-10 md:mx-32 lg:mx-52 my-20'>
         {promotionCards.map((card) => (
           <Card
             key={card.id}
@@ -28,7 +28,7 @@ export default function Promotion() {
       </div>
 
       <div className="flex text-black font-[20px] flex-row justify-center items-center px-10 py-[30px] gap-[10px] w-[339px] h-[84px] bg-gradient-to-r from-[#87FFFF] to-[#16FF00] rounded-[32px] flex-none order-2 flex-grow-0 cursor-pointer hover:opacity-90 hover:scale-105 transition-all duration-300 ease-in-out my-16" onClick={handleBookCall}>
-        Book a free discovery call now
+        Discovery Call
       </div>
     </div>
   );
