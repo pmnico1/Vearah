@@ -25,7 +25,7 @@ export default function ProcessCard({
   return (
     <div
       ref={cardRef}
-      className="relative max-w-[1000px] h-[400px] p-2 md:h-[500px] w-full mx-auto group perspective-1000 "
+      className="relative max-w-[1000px] h-[400px] md:h-[500px] w-full mx-auto group perspective-1000 "
       style={{ transformStyle: 'preserve-3d' }}
     >
       <div
@@ -37,11 +37,11 @@ export default function ProcessCard({
       >
         <div
           ref={contentRef}
-          className='w-1/2 flex flex-col justify-between items-start px-12 pt-12 pb-2'
+          className='w-1/2 flex flex-col justify-between items-start px-5 md:px-12 pt-12 pb-2'
         >
           <div className="relative z-10">
-            <p className='text-[32px] font-semibold text-left text-white'>{title}</p>
-            <p className='text-[18px] py-8 text-left max-w-[600px] text-white/80'>{description}</p>
+            <p className='text-2xl md:text-[32px] font-semibold text-left text-white'>{title}</p>
+            <p className='text-base md:text-[18px] py-8 text-left max-w-[600px] text-white/80'>{description}</p>
           </div>
           <p className='text-[40px] text-white/60 font-bold'>{stepNumber}</p>
         </div>
