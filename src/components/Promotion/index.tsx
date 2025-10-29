@@ -14,7 +14,7 @@ export default function Promotion() {
       <p className='text-[40px] max-w-[500px] mx-auto px-10'>What makes us different</p>
       <p className='text-[20px] max-w-[600px] mx-auto py-5'>We are a team of designers, developers, and strategists who are passionate about creating beautiful and functional websites and applications.</p>
 
-      <div className='flex flex-wrap justify-center items-center gap-12 mx-10 md:mx-32 lg:mx-52 my-20'>
+      <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12 mx-10 md:mx-32 lg:mx-52 my-20'>
         {promotionCards.map((card) => (
           <Card
             key={card.id}

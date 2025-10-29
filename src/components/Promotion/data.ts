@@ -8,13 +8,6 @@ export interface PromotionCard {
 
 export const promotionCards: PromotionCard[] = [
   {
-    id: 'global-standards',
-    title: 'Global Standards with Local Sensitivity',
-    description: 'We understand the nuance of cultural design, financial behaviors, and emerging markets.',
-    image: '/images/feature/1.jpg',
-    imageAlt: 'Global standards illustration'
-  },
-  {
     id: 'art-intelligence',
     title: 'The Fusion of Art + Intelligence',
     description: 'You don\'t have to "stitch" multiple partners together. With us, vision - experience - technology flows seamlessly under one roof.',
