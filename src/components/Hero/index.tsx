@@ -20,12 +20,6 @@ export default function Hero() {
             delayT={1}
           />
         </div>
-        <div className='w-full h-full absolute -top-5 left-0'>
-          <Canvas>
-            <Scene />
-            <OrbitControls enableZoom={false} enablePan={false} />
-          </Canvas>
-        </div>
         <Keyboard />
         <div className='flex flex-row justify-center'>
           <FloatingMenu />
