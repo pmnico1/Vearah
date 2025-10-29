@@ -58,7 +58,7 @@ export default function Team() {
       <p className='text-[40px] max-w-[500px] mx-auto px-2 mb-16 font-medium'>
         Here is what people are saying about us
       </p>
-      <div className='flex flex-wrap justify-center items-center gap-10 my-20 lg:mx-32'>
+      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 my-20 mx-auto'>
         {teamMembers.map((member) => (
           <TeamCard
             key={member.id}
