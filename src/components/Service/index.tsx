@@ -59,7 +59,7 @@ export default function Service() {
           Area of Specialization
         </h2>
 
-        <div ref={textContainerRef} className="space-y-1 text-[48px] text-zinc-500 ">
+        <div ref={textContainerRef} className="space-y-2 text-3xl md:text-[48px] text-zinc-500 ">
           <div className="hover:text-white transition-all duration-500">
             Research & Design
           </div>
