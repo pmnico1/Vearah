@@ -2,7 +2,12 @@ import React from 'react'
 
 export default function Background() {
   return (
-    <div className="text-zinc-500 p-8 opacity-30 text-lg"
+    <div
+      className="text-zinc-500 p-8 opacity-30 text-lg"
+      style={{
+        contain: 'layout style paint', // Isolate rendering
+        willChange: 'auto', // Remove if not animating
+      }}
     >
 
       <div className="max-w-6xl mx-auto relative z-20 bg-none">

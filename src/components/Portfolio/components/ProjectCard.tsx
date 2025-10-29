@@ -9,10 +9,12 @@ import { statisticsFrames } from '@/components/Portfolio/data';
 
 interface ProjectCardProps {
   project: Project;
+  isFirst?: boolean; // Add this prop
 }
 
 export default function ProjectCard({
-  project
+  project,
+  isFirst = false
 }: ProjectCardProps) {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -33,6 +35,9 @@ export default function ProjectCard({
                 height={400}
                 className="absolute inset-0 max-w-none object-center object-cover pointer-events-none size-full"
                 src={project.image}
+                priority={isFirst} // Only prioritize first image
+                loading={isFirst ? "eager" : "lazy"} // Lazy load others
+                sizes="700px" // Optimize Next.js image sizing
               />
             </div>
           </div>

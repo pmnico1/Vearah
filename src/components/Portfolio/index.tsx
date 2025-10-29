@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useLayoutEffect, useRef, useState } from 'react';
+import React, { useLayoutEffect, useRef, useState, useMemo } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { projects } from '@/components/Portfolio/data';
@@ -14,7 +14,13 @@ gsap.registerPlugin(ScrollTrigger);
 export default function ProjectSection() {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
-  const [showTags, setShowTags] = useState(false);
+
+  // Memoize end positions calculation
+  const cardEndPositions = useMemo(() => {
+    return projects.map((_, i, arr) =>
+      (arr.length * 100 - 100 * (i + 1)) + '%'
+    );
+  }, []);
 
   useLayoutEffect(() => {
     const container = containerRef.current;
@@ -25,26 +31,36 @@ export default function ProjectSection() {
         (el): el is HTMLDivElement => el !== null
       );
 
+      // Throttle ScrollTrigger updates
+      let scrollRaf: number | null = null;
+      const throttleRefresh = () => {
+        if (scrollRaf) return;
+        scrollRaf = requestAnimationFrame(() => {
+          ScrollTrigger.update();
+          scrollRaf = null;
+        });
+      };
+
       cards.forEach((card, i) => {
-        // Pre-style for performance and stacking order - match Process component
         gsap.set(card, {
-          zIndex: i + 1, // Higher z-index for cards that should appear on top
+          zIndex: i + 1,
           willChange: 'transform',
-          transform: 'translateZ(0)'
+          transform: 'translateZ(0)',
+          force3D: true // Force GPU acceleration
         });
 
-        // Calculate proper end position - match Process component logic
         const endStr = (cards.length * 100 - 100 * (i + 1)) + '%';
 
-        // Pin each card to stack vertically; no spacing so layers overlap
         ScrollTrigger.create({
           trigger: card,
           start: 'top top',
-          end: endStr, // pin for one viewport height
+          end: endStr,
           pin: true,
           pinSpacing: false,
           anticipatePin: 1,
-          refreshPriority: i // Match Process component
+          refreshPriority: i,
+          fastScrollEnd: true,
+          invalidateOnRefresh: false,
         });
       });
 
@@ -56,10 +72,26 @@ export default function ProjectSection() {
           ScrollTrigger.refresh();
         });
       };
+
+      // Throttle scroll events
+      let ticking = false;
+      const onScroll = () => {
+        if (!ticking) {
+          throttleRefresh();
+          ticking = true;
+          requestAnimationFrame(() => {
+            ticking = false;
+          });
+        }
+      };
+
       window.addEventListener('resize', onResize);
+      window.addEventListener('scroll', onScroll, { passive: true });
 
       return () => {
         window.removeEventListener('resize', onResize);
+        window.removeEventListener('scroll', onScroll);
+        if (scrollRaf) cancelAnimationFrame(scrollRaf);
       };
     }, container);
 
@@ -79,7 +111,14 @@ export default function ProjectSection() {
         className='relative w-full flex flex-col justify-start items-center text-center z-20'
       >
         {/* Background positioned only within the Portfolio section */}
-        <div className="sticky top-0">
+        <div
+          className="sticky top-0"
+          style={{
+            contain: 'layout style paint',
+            willChange: 'transform',
+            transform: 'translateZ(0)', // Force onto GPU layer
+          }}
+        >
           <Background />
         </div>
 
@@ -103,6 +142,7 @@ export default function ProjectSection() {
               <div className='w-full py-12 sm:py-16'>
                 <ProjectCard
                   project={project}
+                  isFirst={index === 0}
                 />
               </div>
             </div>

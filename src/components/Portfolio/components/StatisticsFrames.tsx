@@ -21,14 +21,20 @@ export default function StatisticsFrames({ statisticsFrames }: StatisticsFramesP
             opacity: 1,
             ...(frame.position.left ? { x: 0 } : frame.position.right ? { x: 0 } : { y: 0 })
           }}
-          transition={{ duration: 0.6 }}
+          transition={{
+            duration: 0.6,
+            ease: [0.25, 0.1, 0.25, 1] // Use optimized easing
+          }}
+          style={{
+            ...frame.backgroundStyle,
+            willChange: 'transform, opacity', // Hint for browser optimization
+          }}
           className={`absolute ${frame.position.top ? `top-[6vh]` : ''
             } ${frame.position.bottom ? `-bottom-20` : ''
             } ${frame.position.left ? `-left-[37vh]` : ''
             } ${frame.position.right ? `-right-[40vh]` : ''
             } ${frame.id === 'experience' ? ' -translate-y-40' : ''
             } box-border flex flex-col  gap-[10px] items-start overflow-hidden px-[40px] py-[30px] rounded-[20px] z-20 bg-[#010101]`}
-          style={frame.backgroundStyle}
         >
           <div className="flex gap-[20px] items-center not-italic relative shrink-0 text-nowrap text-white">
             <p className="font-['Urbanist',_sans-serif] font-thin leading-normal relative shrink-0 text-[70px] whitespace-pre">
