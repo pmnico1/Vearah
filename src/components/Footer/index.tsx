@@ -7,22 +7,38 @@ export default function Footer() {
 
       <div className="py-40 flex flex-col items-center justify-center">
         {/* VEARAH Branding */}
-        <h1 className="text-6xl md:text-8xl font-bold mb-16 tracking-wider">
+        <h1
+          className="uppercase font-bold tracking-[0.3em] text-center mb-16
+          text-transparent bg-clip-text
+          bg-[linear-gradient(180deg,#ffffff_-14.79%,rgba(1,1,1,0)_93.33%)]
+          text-[200px] leading-[240px]
+          flex-none z-[1]"
+        >
           VEARAH
         </h1>
 
         {/* Three Icon Buttons */}
-        <div className="flex gap-8 mb-20">
+        <div className="flex gap-5 mb-20">
           {[1, 2, 3].map((item) => (
             <button
               key={item}
-              className="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition-colors duration-200"
+              className="w-[103.33px] h-[104px] bg-[#111010] rounded-[20px] flex items-center justify-center p-10 relative"
             >
-              <div className="w-6 h-6 text-white">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
-                </svg>
-              </div>
+              {/* send (hidden) */}
+              <div className="hidden w-8 h-8" aria-hidden="true" />
+
+              {/* messages */}
+              <svg
+                className="w-6 h-6"
+                viewBox="0 0 24 24"
+                fill="white"
+                aria-hidden="true"
+              >
+                <path d="M20 2H4a2 2 0 00-2 2v14l4-3h14a2 2 0 002-2V4a2 2 0 00-2-2z" />
+                <circle cx="7" cy="10" r="1.25" />
+                <circle cx="12" cy="10" r="1.25" />
+                <circle cx="17" cy="10" r="1.25" />
+              </svg>
             </button>
           ))}
         </div>

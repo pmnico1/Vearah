@@ -1,6 +1,7 @@
 'use client'
 import React, { useState, useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
+import Link from 'next/link'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -40,18 +41,18 @@ export default function Header() {
       className="flex justify-between items-center px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 py-4 md:py-4 relative opacity-0"
     >
       {/* Logo */}
-      <div className="text-sm sm:text-base md:text-lg font-semibold" style={{
+      <Link href="/" className="text-sm sm:text-base md:text-lg font-semibold cursor-pointer" style={{
         fontFamily: 'Urbanist',
         fontWeight: 600,
         lineHeight: '100%',
         letterSpacing: '0%'
       }}>
         Vearah
-      </div>
+      </Link>
 
       {/* Desktop Navigation */}
       <nav className="hidden lg:flex gap-6 xl:gap-8">
-        <button className="hover:opacity-80 transition-opacity text-sm xl:text-base" style={{
+        <button className="hover:opacity-80 transition-opacity text-sm xl:text-base  cursor-pointer" style={{
           fontFamily: 'Urbanist',
           fontWeight: 400,
           fontStyle: 'normal',
@@ -60,17 +61,7 @@ export default function Header() {
           textAlign: 'center'
         }}>Case Study</button>
         <button
-          className="gradient-text text-sm xl:text-base"
-          style={{
-            fontFamily: 'Urbanist',
-            fontWeight: '400',
-            letterSpacing: '-2%',
-          }}
-        >
-          Read Our Manifesto
-        </button>
-        <button
-          className="py-3 px-4 xl:py-[14px] xl:px-[20px] rounded-[7px] bg-[#16FF00] text-sm xl:text-base"
+          className=" cursor-pointer py-3 px-4 lg:py-[14px] lg:px-[20px] rounded-[7px] bg-[#64D3FF] hover:bg-[#8bcde7] text-sm xl:text-base"
           style={{
             fontWeight: '600',
             color: '#000000',
@@ -94,29 +85,54 @@ export default function Header() {
       </button>
 
       {/* Mobile Navigation Menu */}
-      <div className={`lg:hidden absolute top-full left-0 right-0 bg-black/95 backdrop-blur-sm border-t border-white/10 z-50 transition-all duration-300 ease-in-out ${isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'
-        }`}>
+      <div className={`lg:hidden absolute top-full left-0 right-0 bg-black/95 backdrop-blur-sm border-t border-white/10 z-50 transition-all duration-300 ease-in-out ${isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'}`}>
         <nav className="flex flex-col p-6 space-y-6">
           <button
-            className="text-left py-3 hover:opacity-80 transition-opacity text-base font-medium"
+            className="text-left py-3 hover:opacity-80 transition-opacity text-base"
+            style={{
+              fontFamily: 'Urbanist',
+              fontWeight: 400,
+              fontStyle: 'normal',
+              lineHeight: '100%',
+              letterSpacing: '0%',
+              textAlign: 'left',
+            }}
             onClick={() => setIsMenuOpen(false)}
           >
             Case Study
           </button>
+
           <button
-            className="gradient-text text-left py-3 text-base font-medium"
+            className="text-left py-3 hover:opacity-80 transition-opacity text-base"
+            style={{
+              fontFamily: 'Urbanist',
+              fontWeight: 400,
+              fontStyle: 'normal',
+              lineHeight: '100%',
+              letterSpacing: '0%',
+              textAlign: 'left',
+            }}
             onClick={() => setIsMenuOpen(false)}
           >
             Read Our Manifesto
           </button>
+
           <button
-            className="gradient-button w-full py-4 mt-4 text-base font-medium"
+            className="w-full py-4 rounded-[7px] bg-[#64D3FF] text-base"
+            style={{
+              fontFamily: 'Urbanist',
+              fontWeight: 600,
+              color: '#000000',
+              lineHeight: '100%',
+              letterSpacing: '0%',
+              textAlign: 'center',
+            }}
             onClick={() => {
               handleBookCall();
               setIsMenuOpen(false);
             }}
           >
-            Book a free discovery call
+            Book a call
           </button>
         </nav>
       </div>
