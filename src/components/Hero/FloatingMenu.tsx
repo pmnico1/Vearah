@@ -22,7 +22,7 @@ export default function FloatingMenu() {
   return (
     <div className="z-50">
       {/* Main CTA bar (500x89, centered) */}
-      <div className="absolute left-1/2 -translate-x-1/2 bottom-2 z-50">
+      <div className="absolute left-1/2 -translate-x-1/2 -bottom-40 z-50">
         <div
           className="rounded-[230px] p-2 border-t-2 border-gray-600 shadow-2xl"
           style={{
