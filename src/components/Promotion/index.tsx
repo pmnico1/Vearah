@@ -9,8 +9,7 @@ export default function Promotion() {
   };
 
   return (
-    <div className='flex flex-col justify-center items-center w-full text-center my-40'>
-      <p>Value Preposition</p>
+    <div className='flex flex-col justify-center items-center w-full text-center my-80'>
       <p className='text-[40px] max-w-[500px] mx-auto px-10'>What makes us different</p>
       <p className='text-[20px] max-w-[600px] mx-auto py-5'>We are a team of designers, developers, and strategists who are passionate about creating beautiful and functional websites and applications.</p>
 
@@ -27,9 +26,16 @@ export default function Promotion() {
         ))}
       </div>
 
-      <div className="flex text-black font-[20px] flex-row justify-center items-center px-10 py-[30px] gap-[10px] w-[339px] h-[84px] bg-gradient-to-r from-[#87FFFF] to-[#16FF00] rounded-[32px] flex-none order-2 flex-grow-0 cursor-pointer hover:opacity-90 hover:scale-105 transition-all duration-300 ease-in-out my-16" onClick={handleBookCall}>
+      <button
+        className=" cursor-pointer py-3 px-4 lg:py-[14px] lg:px-[20px] rounded-[7px] bg-[#64D3FF] hover:bg-[#8bcde7] text-sm xl:text-base"
+        style={{
+          fontWeight: '600',
+          color: '#000000',
+        }}
+        onClick={() => handleBookCall()}
+      >
         Discovery Call
-      </div>
+      </button>
     </div>
   );
 }

@@ -49,7 +49,6 @@ export default function FAQ() {
 
   return (
     <div className='flex flex-col justify-center items-center w-full text-center my-40 px-4'>
-      <p className="text-white text-sm font-medium mb-4">FAQ</p>
       <p className='text-white text-[40px] max-w-[500px] mx-auto px-10 mb-16 font-medium'>
         What are the questions people keep asking?
       </p>

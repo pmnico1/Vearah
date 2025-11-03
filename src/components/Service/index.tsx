@@ -55,7 +55,7 @@ export default function Service() {
 
       {/* Right side - Black background with text */}
       <div className="w-full md:w-1/2 bg-black flex flex-col justify-between px-16 py-20">
-        <h2 className="text-lg font-bold text-right mb-12">
+        <h2 className="text-lg text-right mb-12">
           Area of Specialization
         </h2>
 

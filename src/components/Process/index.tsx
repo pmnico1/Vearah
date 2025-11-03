@@ -69,7 +69,6 @@ export default function Process() {
     >
       {/* Header Section (sticks at top while stack occurs) */}
       <div className=' top-0 z-20 w-full py-20 -translate-y-10 bg-transparent'>
-        <p className='text-white/60 text-lg mb-4'>Our Process</p>
         <p className='text-[40px]/[1.2] max-w-[500px] mx-auto px-10 text-white'>
           We created Vearah to be naturally ahead
         </p>
