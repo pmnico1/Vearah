@@ -7,7 +7,7 @@ import Image from 'next/image'
 
 export default function Hero() {
   return (
-    <div className="min-h-screen relative flex items-start justify-center">
+    <div className="min-h-screen relative flex items-start justify-center mb-96">
       <div className="w-full max-w-[500px]">
         <div className="text-[24px] text-center text-white mb-5 mt-[125px]" style={{ fontWeight: '400' }}>
           <SplitText
