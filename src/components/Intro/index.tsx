@@ -4,7 +4,7 @@ import ScrollReveal from './ScrollReveal'
 
 export default function Intro() {
   return (
-    <div className='px-10 md:px-32 lg:px-[250px] my-30'>
+    <div className='px-10 md:px-32 lg:px-[200px] my-30'>
       <ScrollReveal
         baseOpacity={0.2}
         enableBlur={true}
