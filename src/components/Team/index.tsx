@@ -60,28 +60,62 @@ const teamMembers = [
 export default function Team() {
   const sectionRef = useRef<HTMLDivElement>(null)
   const cardsContainerRef = useRef<HTMLDivElement>(null)
+  const titleRef = useRef<HTMLParagraphElement>(null)
 
   useEffect(() => {
     const cards = cardsContainerRef.current?.children
     const section = sectionRef.current
+    const title = titleRef.current
     if (!cards || !section) return
 
-    // Set initial state - position items above and make them transparent
+    // Animate title
+    if (title) {
+      gsap.fromTo(title,
+        {
+          opacity: 0,
+          y: 50,
+          scale: 0.9
+        },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: section,
+            start: "top 85%",
+            toggleActions: "play none none none"
+          }
+        }
+      )
+    }
+
+    // Set initial state for cards - scale down, rotate, blur, and positioned differently
     gsap.set(cards, {
       opacity: 0,
-      y: -30
+      scale: 0.5,
+      rotation: 15,
+      filter: "blur(10px)",
+      y: 100
     })
 
-    // Animate each item from top to bottom with stagger when section enters viewport
+    // Animate cards with more dynamic effect
     gsap.to(cards, {
       opacity: 1,
+      scale: 1,
+      rotation: 0,
+      filter: "blur(0px)",
       y: 0,
-      stagger: 0.15, // Delay between each item
-      duration: 0.8,
-      ease: "power2.out",
+      stagger: {
+        amount: 0.8,
+        from: "random"
+      },
+      duration: 1.2,
+      ease: "back.out(1.7)",
       scrollTrigger: {
         trigger: section,
-        start: "top 80%", // Start animation when top of section is at 80% from top of viewport
+        start: "top 80%",
         toggleActions: "play none none none"
       }
     })
@@ -94,7 +128,7 @@ export default function Team() {
   return (
     <div ref={sectionRef} className='flex flex-col justify-center items-center w-full text-white text-center my-40 px-4'>
       <p className="text-sm font-medium mb-4">What people say about us</p>
-      <p className='text-[40px] max-w-[500px] mx-auto px-2 mb-16 font-medium'>
+      <p ref={titleRef} className='text-[40px] max-w-[500px] mx-auto px-2 mb-16 font-medium'>
         Here is what people are saying about us
       </p>
       <div ref={cardsContainerRef} className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 my-20 mx-auto'>
