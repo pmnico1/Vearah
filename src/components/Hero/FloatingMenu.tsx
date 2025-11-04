@@ -1,18 +1,31 @@
 /* eslint-disable @next/next/no-img-element */
-import { useState } from "react";
-import { motion, AnimatePresence } from 'motion/react';
-import { Calendar, Mail } from 'lucide-react';
+import { useState, useRef, useEffect } from "react";
+import { motion } from 'motion/react';
+import { gsap } from 'gsap';
 import { imgVuesaxLinearSort } from "@/assets/svgs/2jcut";
 
 export default function FloatingMenu() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (menuRef.current) {
+      // Start hidden
+      const animation = gsap.to(menuRef.current, {
+        opacity: 1,
+        duration: 0.6,
+        ease: 'power2.out',
+        delay: 3,
+      });
+
+      return () => {
+        animation.kill();
+      };
+    }
+  }, [menuRef.current]); // Empty dependency array for mount-only effect
 
   const handleBookCall = () => {
     window.open('https://calendly.com/met4guy', '_blank');
-  };
-
-  const handleChat = () => {
-    window.location.href = 'mailto:hello@vearah.com';
   };
 
   const toggleMenu = () => {
@@ -20,9 +33,9 @@ export default function FloatingMenu() {
   };
 
   return (
-    <div className="z-50">
+    <div ref={menuRef} className="z-50 opacity-0">
       {/* Main CTA bar (500x89, centered) */}
-      <div className="absolute left-1/2 -translate-x-1/2 -bottom-40 z-50">
+      <div className="fixed left-1/2 -translate-x-1/2 bottom-10 z-50">
         <div
           className="rounded-[230px] w-full max-w-[500px] p-2 border-t-2 border-gray-600 shadow-2xl"
           style={{
@@ -92,7 +105,7 @@ function CTAButton({
     <motion.button
       className={`
         relative rounded-[45px] cursor-pointer
-        transition-all duration-200 text-center'
+        transition-all duration-200 text-center
       `}
       style={{ width: 206, height: 73, padding: '27px 32px' }}
       whileHover={!disabled ? { scale: 1.05 } : {}}
