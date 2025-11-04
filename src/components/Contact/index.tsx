@@ -6,9 +6,9 @@ export default function Contact() {
     window.open('https://calendly.com/met4guy', '_blank');
   };
   return (
-    <div className='flex flex-col justify-center items-center w-full text-white text-center my-40 p-2'>
+    <div className='flex flex-col justify-center items-center w-full text-white text-center my-40 p-10 md:p-2'>
       <p className=" text-sm font-medium mb-4">Contact us</p>
-      <p className=' text-[32px] md:text-[40px] max-w-[600px] mx-auto mb-16 font-medium'>
+      <p className=' text-[24px] md:text-[40px] max-w-[600px] mx-auto mb-16 font-medium'>
         Drop us your email and fill in your details and we will be in touch.
       </p>
       <div className='flex flex-col justify-center items-center gap-8 w-full'>
@@ -17,11 +17,11 @@ export default function Contact() {
           <div
             className={`relative border-y-[2px] bg-[#090808] border-[#0d0e0d] rounded-[40px] flex flex-col items-start p-6 md:p-12 w-full overflow-hidden `}
           >
-            <input type="text" placeholder='Enter email' className='outline-none w-full text-3xl' />
+            <input type="text" placeholder='Enter email' className='outline-none w-full text-xl md:text-3xl' />
           </div>
         </div>
         <div className={`relative border-y-[2px]  max-w-[572px] bg-[#090808] border-[#0d0e0d] rounded-[40px] flex flex-col items-start p-6 md:p-12 w-full overflow-hidden `}>
-          <textarea className='w-full outline-0 h-[274px] text-3xl' placeholder='Enter details' />
+          <textarea className='w-full outline-0 h-[274px] text-xl md:text-3xl' placeholder='Enter details' />
         </div>
         <div className='flex justify-between max-w-[572px] items-center w-full cursor-pointer '>
           <a
