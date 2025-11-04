@@ -110,21 +110,21 @@ export default function Footer() {
         {/* VEARAH Branding */}
         <h1
           ref={headingRef}
-          className="uppercase font-bold tracking-[0.3em] text-center mb-16
+          className="uppercase font-bold tracking-[0.3em] text-center mb-2 md:mb-16
           text-transparent bg-clip-text
-          bg-[linear-gradient(180deg,#ffffff_-14.79%,rgba(1,1,1,0)_93.33%)]
-          text-[200px] leading-[240px]
+          bg-[linear-gradient(180deg,#ffffff_-14.79%,rgba(1,1,1,0)_93.33%)] text-[60px]
+          md:text-[100px] lg:text-[160px] xl:text-[200px] leading-40 md:leading-[240px]
           flex-none z-[1]"
         >
           VEARAH
         </h1>
 
         {/* Three Icon Buttons */}
-        <div ref={buttonsRef} className="flex gap-5 mb-20">
+        <div ref={buttonsRef} className="flex gap-5 mb-10 md:mb-20">
           {[1, 2, 3].map((item) => (
             <button
               key={item}
-              className="w-[103.33px] h-[104px] bg-[#111010] rounded-[20px] flex items-center justify-center p-10 relative"
+              className="bg-[#111010] rounded-lg md:rounded-[20px] flex items-center justify-center p-4 md:p-10 relative"
             >
               {/* send (hidden) */}
               <div className="hidden w-8 h-8" aria-hidden="true" />
@@ -146,12 +146,12 @@ export default function Footer() {
         </div>
 
         {/* Description Text */}
-        <div ref={textRef} className="text-center max-w-4xl">
-          <p className="text-lg md:text-xl leading-relaxed">
+        <div ref={textRef} className="text-center max-w-4xl p-4">
+          <p className="text-base md:text-xl leading-relaxed">
             We are not just a design and tech agency, we are a future-
-            <br />
+            <br className='hidden md:block' />
             building partner. Where creativity meets intelligence, and every
-            <br />
+            <br className='hidden md:block' />
             product becomes a story worth experiencing.
           </p>
         </div>

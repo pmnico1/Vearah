@@ -6,7 +6,7 @@ import Portfolio from "@/components/Portfolio";
 import Process from "@/components/Process";
 import Promotion from "@/components/Promotion";
 import FAQ from "@/components/FAQ";
-import Lenis from "lenis/react";
+import { ReactLenis } from "lenis/react";
 import Team from "@/components/Team";
 import Contact from "@/components/Contact";
 import Service from "@/components/Service";
@@ -33,17 +33,8 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <div className="min-h-screen">
-      <Lenis
+      <ReactLenis
         root
-        options={{
-          lerp: 0.1,
-          duration: 1.2,
-          orientation: 'vertical',
-          gestureOrientation: 'vertical',
-          smoothWheel: true,
-          wheelMultiplier: 1,
-          touchMultiplier: 2,
-        }}
       >
         <Header />
         <Hero />
@@ -56,7 +47,7 @@ export default function Home() {
         <Team />
         <Contact />
         <Footer />
-      </Lenis>
+      </ReactLenis>
     </div>
   );
 }
