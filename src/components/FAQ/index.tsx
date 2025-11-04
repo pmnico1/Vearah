@@ -1,5 +1,9 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
 
 interface FAQItem {
   question: string
@@ -31,6 +35,66 @@ const faqData: FAQItem[] = [
 
 export default function FAQ() {
   const [expandedIndex, setExpandedIndex] = useState<number>(1) // Second item expanded by default
+  const sectionRef = useRef<HTMLDivElement>(null)
+  const titleRef = useRef<HTMLParagraphElement>(null)
+  const faqItemsRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const section = sectionRef.current
+    const title = titleRef.current
+    const faqItems = faqItemsRef.current?.children
+
+    if (!section || !title || !faqItems) return
+
+    // Set initial state for title - scale down with blur
+    gsap.set(title, {
+      opacity: 0,
+      scale: 0.8,
+      filter: 'blur(10px)'
+    })
+
+    // Set initial state for FAQ items - scale down and blur
+    gsap.set(faqItems, {
+      opacity: 0,
+      scale: 0.9,
+      filter: 'blur(8px)',
+      x: -50 // Start from left
+    })
+
+    // Animate title with scale and blur
+    gsap.to(title, {
+      opacity: 1,
+      scale: 1,
+      filter: 'blur(0px)',
+      duration: 1,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: section,
+        start: "top 80%",
+        toggleActions: "play none none none"
+      }
+    })
+
+    // Animate FAQ items with scale, blur, and slide from left with stagger
+    gsap.to(faqItems, {
+      opacity: 1,
+      scale: 1,
+      filter: 'blur(0px)',
+      x: 0,
+      stagger: 0.2, // Increased delay for more dramatic effect
+      duration: 1,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: section,
+        start: "top 80%",
+        toggleActions: "play none none none"
+      }
+    })
+
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill())
+    }
+  }, [])
 
   const toggleExpanded = (index: number) => {
     setExpandedIndex(expandedIndex === index ? -1 : index)
@@ -48,12 +112,12 @@ export default function FAQ() {
   }
 
   return (
-    <div className='flex flex-col justify-center items-center w-full text-center my-40 px-4'>
-      <p className='text-white text-[40px] max-w-[500px] mx-auto px-10 mb-16 font-medium'>
+    <div ref={sectionRef} className='flex flex-col justify-center items-center w-full text-center my-40 px-4'>
+      <p ref={titleRef} className='text-white text-[40px] max-w-[500px] mx-auto px-10 mb-16 font-medium'>
         What are the questions people keep asking?
       </p>
 
-      <div className="w-full max-w-[1000px] space-y-4 text-left">
+      <div ref={faqItemsRef} className="w-full max-w-[1000px] space-y-4 text-left">
         {faqData.map((item, index) => (
           <div key={index}
             className={expandedIndex === index
@@ -105,8 +169,7 @@ export default function FAQ() {
               </div>
             </div>
           </div>
-        ))
-        }
+        ))}
       </div >
     </div >
   )
