@@ -1,4 +1,10 @@
+'use client'
+import React, { useEffect, useRef } from 'react'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import TeamCard from './TeamCard'
+
+gsap.registerPlugin(ScrollTrigger)
 
 const teamMembers = [
   {
@@ -52,13 +58,46 @@ const teamMembers = [
 ]
 
 export default function Team() {
+  const sectionRef = useRef<HTMLDivElement>(null)
+  const cardsContainerRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const cards = cardsContainerRef.current?.children
+    const section = sectionRef.current
+    if (!cards || !section) return
+
+    // Set initial state - position items above and make them transparent
+    gsap.set(cards, {
+      opacity: 0,
+      y: -30
+    })
+
+    // Animate each item from top to bottom with stagger when section enters viewport
+    gsap.to(cards, {
+      opacity: 1,
+      y: 0,
+      stagger: 0.15, // Delay between each item
+      duration: 0.8,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: section,
+        start: "top 80%", // Start animation when top of section is at 80% from top of viewport
+        toggleActions: "play none none none"
+      }
+    })
+
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill())
+    }
+  }, [])
+
   return (
-    <div className='flex flex-col justify-center items-center w-full text-white text-center my-40 px-4'>
+    <div ref={sectionRef} className='flex flex-col justify-center items-center w-full text-white text-center my-40 px-4'>
       <p className="text-sm font-medium mb-4">What people say about us</p>
       <p className='text-[40px] max-w-[500px] mx-auto px-2 mb-16 font-medium'>
         Here is what people are saying about us
       </p>
-      <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 my-20 mx-auto'>
+      <div ref={cardsContainerRef} className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 my-20 mx-auto'>
         {teamMembers.map((member) => (
           <TeamCard
             key={member.id}
