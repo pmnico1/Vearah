@@ -22,7 +22,7 @@ export default function Card({ children, image, imageAlt }: CardProps) {
             src={image}
             alt={imageAlt || ''}
             fill
-            className="object-cover group-hover:opacity-80 transition-opacity duration-500"
+            className="object-center group-hover:opacity-80 transition-opacity duration-500"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>

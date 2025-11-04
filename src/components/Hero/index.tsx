@@ -44,10 +44,10 @@ export default function Hero() {
         <div ref={groupRef} className='flex justify-center items-center w-full mt-[90px] opacity-0'>
           <Image src={'/images/group.png'} alt={'group'} width={430} height={86} className='w-[230px] h-[86px]' />
         </div>
-        <div ref={leftImgRef} className='absolute left-1/7 bottom-80  opacity-0'>
+        <div ref={leftImgRef} className='absolute md:left-1/7 left-2 bottom-60 md:bottom-80  opacity-0'>
           <Image src={'/images/hero/2.png'} alt={'vearah'} width={196} height={190} className='w-[196px] h-[190px] object-cover' />
         </div>
-        <div ref={rightImgRef} className='absolute right-1/7 bottom-60  opacity-0'>
+        <div ref={rightImgRef} className='absolute -right-2 md:right-1/7 bottom-36 md:bottom-60  opacity-0'>
           <Image src={'/images/hero/1.png'} alt={'agency'} width={300} height={236} className='w-[300px] h-[236px] object-cover -rotate-40' />
         </div>
         <p ref={textRef} className='text-center text-xl mt-[100px]  opacity-0'>We are a future-building partner. Where creativity <br /> meets intelligence, and every product becomes a story worth experiencing.</p>
