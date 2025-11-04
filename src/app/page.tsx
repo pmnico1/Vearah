@@ -32,22 +32,25 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className="min-h-screen">
-      <ReactLenis
-        root
-      >
-        <Header />
-        <Hero />
-        <Intro />
-        <Portfolio />
-        <Service />
-        <Process />
-        <Promotion />
-        <FAQ />
-        <Team />
-        <Contact />
-        <Footer />
-      </ReactLenis>
-    </div>
+    <ReactLenis
+      root
+      options={{
+        wheelMultiplier: 1,
+        touchMultiplier: 2,
+        smoothWheel: true,
+      }}
+    >
+      <Header />
+      <Hero />
+      <Intro />
+      <Portfolio />
+      <Service />
+      <Process />
+      <Promotion />
+      <FAQ />
+      <Team />
+      <Contact />
+      <Footer />
+    </ReactLenis>
   );
 }
