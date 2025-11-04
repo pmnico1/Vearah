@@ -39,15 +39,15 @@ export default function ProcessCard({
       >
         <div
           ref={contentRef}
-          className='w-2/5 flex flex-col justify-between items-start px-5 md:px-25 py-25'
+          className='w-1/2 lg:w-2/5 flex flex-col justify-between items-start p-10 md:p-16 lg:p-25'
         >
           <div className="relative z-10">
-            <p className='text-2xl md:text-[32px] text-left text-white'>{title + ' - ' + subtitle}</p>
-            <p className='text-base md:text-[18px] py-8 text-left max-w-[600px] text-white/80'>{description}</p>
+            <p className='text-xl md:text-2xl md:text-[32px] text-left text-white'>{title + ' - ' + subtitle}</p>
+            <p className='text-sm md:text-[18px] py-8 text-left max-w-[600px] text-white/80'>{description}</p>
             <div className='flex flex-wrap gap-2 justify-start'>
               {
                 tag.map((item, index) => (
-                  <p key={index} className='px-4 py-3 bg-black rounded-2xl'>{item}</p>
+                  <p key={index} className='px-4 py-3 bg-black rounded-2xl text-xs md:text-base'>{item}</p>
                 ))
               }
 
@@ -56,7 +56,7 @@ export default function ProcessCard({
           <p className='text-[40px] text-white/60'>{'0' + stepNumber}</p>
         </div>
 
-        <div ref={imageRef} className='w-3/5 overflow-hidden rounded-l-[40px]'>
+        <div ref={imageRef} className='w-1/2 lg:w-3/5 overflow-hidden rounded-l-[40px]'>
           <Image
             src={imageSrc}
             className='w-full h-full object-cover transition-transform duration-300 group-hover:scale-110'

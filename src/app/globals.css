@@ -26,6 +26,14 @@ body {
   overflow-y: hidden; /* Hide vertical scrollbar */
 }
 
+p {
+  user-select: none;
+}
+
+div {
+  user-select: none;
+}
+
 .gradient-text {
   background: linear-gradient(to right, #00F5D4, #28FF27);
   -webkit-background-clip: text;

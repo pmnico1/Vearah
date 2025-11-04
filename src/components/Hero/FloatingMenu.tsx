@@ -24,9 +24,8 @@ export default function FloatingMenu() {
       {/* Main CTA bar (500x89, centered) */}
       <div className="absolute left-1/2 -translate-x-1/2 -bottom-40 z-50">
         <div
-          className="rounded-[230px] p-2 border-t-2 border-gray-600 shadow-2xl"
+          className="rounded-[230px] w-full max-w-[500px] p-2 border-t-2 border-gray-600 shadow-2xl"
           style={{
-            width: 500,
             height: 89,
             backgroundImage:
               'radial-gradient(151.05% 43.18% at 51.71% 0%, rgba(129,187,255,0.3) 0%, rgba(25,25,25,0) 100%), linear-gradient(360deg, #010101 0%, #171717 100%)',

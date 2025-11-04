@@ -8,10 +8,12 @@ gsap.registerPlugin(ScrollTrigger)
 export default function Service() {
   const sectionRef = useRef<HTMLDivElement>(null)
   const textContainerRef = useRef<HTMLDivElement>(null)
+  const videoRef = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
     const textItems = textContainerRef.current?.children
     const section = sectionRef.current
+    const video = videoRef.current
     if (!textItems || !section) return
 
     // Set initial state - position items above and make them transparent
@@ -19,6 +21,12 @@ export default function Service() {
       opacity: 0,
       y: -30
     })
+
+    // Reset video to start
+    if (video) {
+      video.currentTime = 0
+      video.pause()
+    }
 
     // Animate each item from top to bottom with stagger when section enters viewport
     gsap.to(textItems, {
@@ -34,6 +42,19 @@ export default function Service() {
       }
     })
 
+    // Play video once when section enters viewport
+    if (video) {
+      ScrollTrigger.create({
+        trigger: section,
+        start: "top 80%",
+        onEnter: () => {
+          video.currentTime = 0
+          video.play()
+        },
+        once: true // Only trigger once
+      })
+    }
+
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill())
     }
@@ -44,9 +65,8 @@ export default function Service() {
       {/* Left side - Card video background */}
       <div className="min-h-[300px] w-full md:w-1/2 relative overflow-hidden">
         <video
+          ref={videoRef}
           src="/images/card.mp4"
-          autoPlay
-          loop
           muted
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
@@ -59,7 +79,7 @@ export default function Service() {
           Area of Specialization
         </h2>
 
-        <div ref={textContainerRef} className="space-y-2 text-3xl md:text-[48px] text-zinc-500 ">
+        <div ref={textContainerRef} className="space-y-2 text-3xl lg:text-[48px] text-zinc-500 ">
           <div className="hover:text-white transition-all duration-500">
             Research & Design
           </div>

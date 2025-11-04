@@ -33,7 +33,7 @@ export default function Hero() {
             delayT={1}
           />
         </div>
-        <div className="text-[64px] leading-[72px] tracking-[0.02em] text-center text-white font-semibold">
+        <div className="text-[40px] md:text-[64px] leading-[72px] tracking-[0.02em] text-center text-white font-semibold">
           <SplitText
             text='Designing the future of digital experiences'
             duration={0.4}
@@ -50,7 +50,7 @@ export default function Hero() {
         <div ref={rightImgRef} className='absolute -right-2 md:right-1/7 bottom-36 md:bottom-60  opacity-0'>
           <Image src={'/images/hero/1.png'} alt={'agency'} width={300} height={236} className='w-[300px] h-[236px] object-cover -rotate-40' />
         </div>
-        <p ref={textRef} className='text-center text-xl mt-[100px]  opacity-0'>We are a future-building partner. Where creativity <br /> meets intelligence, and every product becomes a story worth experiencing.</p>
+        <p ref={textRef} className='text-center text-base md:text-xl mt-[100px]  opacity-0'>We are a future-building partner. Where creativity <br /> meets intelligence, and every product becomes a story worth experiencing.</p>
       </div>
       <div className='flex flex-row justify-center'>
         <FloatingMenu />
