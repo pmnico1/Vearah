@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div>
+    <div className="md:w-full w-screen">
       <ReactLenis
         root
         options={{
