@@ -53,7 +53,7 @@ export default function DualImageSection({ images }: DualImageSectionProps) {
       ref={sectionRef}
       className="flex items-center justify-center"
     >
-      <div className="w-full flex flex-col md:flex-row gap-8 md:gap-12 items-center justify-center">
+      <div className="w-full flex flex-col md:flex-row gap-8 md:gap-12 items-center justify-between">
         {images.map((imageSrc, index) => (
           <div
             key={index}
