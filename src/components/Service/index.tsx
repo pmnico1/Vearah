@@ -61,7 +61,7 @@ export default function Service() {
   }, [])
 
   return (
-    <div ref={sectionRef} className="flex md:flex-row flex-col min-h-screen text-white mt-40 md:mt-0">
+    <div ref={sectionRef} className="flex md:flex-row flex-col min-h-screen text-white">
       {/* Left side - Card video background */}
       <div className="min-h-[300px] w-full md:w-1/2 relative overflow-hidden">
         <video
@@ -79,7 +79,7 @@ export default function Service() {
           Area of Specialization
         </h2>
 
-        <div ref={textContainerRef} className="space-y-2 text-3xl lg:text-[48px] text-zinc-500 ">
+        <div ref={textContainerRef} className="space-y-6 md:space-y-2 text-3xl lg:text-[48px] text-zinc-500 ">
           <div className="hover:text-white transition-all duration-500">
             Research & Design
           </div>

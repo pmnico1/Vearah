@@ -33,37 +33,39 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <ReactLenis
-      root
-      options={{
-        wheelMultiplier: 1,
-        touchMultiplier: 2,
-        smoothWheel: true,
-      }}
-    >
-      <Header />
-      <Hero />
-      <Intro />
-      <div className="h-[400px]" />
-      <Portfolio />
-      <div className="relative h-[200px]" >
-        <div className="absolute bottom-0 left-0 w-full">
-          <Image src="/footer.png" alt="footer" width={1900} height={300} className='w-full' />
+    <div>
+      <ReactLenis
+        root
+        options={{
+          wheelMultiplier: 1,
+          touchMultiplier: 2,
+          smoothWheel: true,
+        }}
+      >
+        <Header />
+        <Hero />
+        <Intro />
+        <div className="h-[400px]" />
+        <Portfolio />
+        <div className="relative h-[200px]" >
+          <div className="absolute bottom-0 left-0 w-full">
+            <Image src="/footer.png" alt="footer" width={1900} height={300} className='w-full' />
+          </div>
         </div>
-      </div>
-      <Service />
-      <div className="h-[200px]" />
-      <Process />
-      <div className="h-[200px]" />
-      <Promotion />
-      <div className="h-[200px]" />
-      <FAQ />
-      <div className="h-[200px]" />
-      <Team />
-      <div className="h-[200px]" />
-      <Contact />
-      <div className="h-[150px]" />
-      <Footer />
-    </ReactLenis>
+        <Service />
+        <div className="h-[200px]" />
+        <Process />
+        <div className="h-[200px]" />
+        <Promotion />
+        <div className="h-[200px]" />
+        <FAQ />
+        <div className="h-[200px]" />
+        <Team />
+        <div className="h-[200px]" />
+        <Contact />
+        <div className="h-[150px]" />
+        <Footer />
+      </ReactLenis>
+    </div>
   );
 }
