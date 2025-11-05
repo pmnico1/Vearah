@@ -36,7 +36,7 @@ export default function Layout() {
     gsap.to(title, {
       opacity: 1,
       y: 0,
-      duration: 0.8,
+      duration: 1.6,
       ease: 'power3.out'
     })
 
@@ -53,7 +53,7 @@ export default function Layout() {
     gsap.to([subtitle, description], {
       opacity: 1,
       y: 0,
-      duration: 0.8,
+      duration: 1.6,
       ease: 'power2.out',
       stagger: 0.1,
       delay: 0.5
@@ -72,7 +72,7 @@ export default function Layout() {
         opacity: 1,
         y: 0,
         scale: 1,
-        duration: 0.8,
+        duration: 1.6,
         ease: 'power2.out',
         stagger: 0.15,
         scrollTrigger: {
