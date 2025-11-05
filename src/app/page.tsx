@@ -11,6 +11,7 @@ import Team from "@/components/Team";
 import Contact from "@/components/Contact";
 import Service from "@/components/Service";
 import type { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Vearah - Home",
@@ -43,13 +44,25 @@ export default function Home() {
       <Header />
       <Hero />
       <Intro />
+      <div className="h-[400px]" />
       <Portfolio />
+      <div className="relative h-[200px]" >
+        <div className="absolute bottom-0 left-0 w-full">
+          <Image src="/footer.png" alt="footer" width={1900} height={300} className='w-full' />
+        </div>
+      </div>
       <Service />
+      <div className="h-[200px]" />
       <Process />
+      <div className="h-[200px]" />
       <Promotion />
+      <div className="h-[200px]" />
       <FAQ />
+      <div className="h-[200px]" />
       <Team />
+      <div className="h-[200px]" />
       <Contact />
+      <div className="h-[150px]" />
       <Footer />
     </ReactLenis>
   );

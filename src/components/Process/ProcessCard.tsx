@@ -40,10 +40,10 @@ export default function ProcessCard({
           className='w-1/2 flex flex-col justify-between items-start px-5 md:px-12 pt-12 pb-2'
         >
           <div className="relative z-10">
-            <p className='text-2xl md:text-[32px] font-semibold text-left text-white'>{title}</p>
+            <p className='text-2xl md:text-[32px] text-left text-white'>{title}</p>
             <p className='text-base md:text-[18px] py-8 text-left max-w-[600px] text-white/80'>{description}</p>
           </div>
-          <p className='text-[40px] text-white/60 font-bold'>{stepNumber}</p>
+          <p className='text-[40px] text-white/60 '>{stepNumber}</p>
         </div>
 
         <div ref={imageRef} className='w-1/2 overflow-hidden rounded-l-[40px]'>
