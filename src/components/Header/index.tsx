@@ -51,15 +51,11 @@ export default function Header() {
       </Link>
 
       {/* Desktop Navigation */}
-      <nav className="hidden lg:flex gap-6 xl:gap-8">
-        <button className="hover:opacity-80 transition-opacity text-sm xl:text-base  cursor-pointer" style={{
+      <nav className="hidden lg:flex gap-6 xl:gap-8 items-center">
+        <Link href={'/case-study'} className="hover:opacity-80 transition-opacity text-sm xl:text-base  cursor-pointer" style={{
           fontFamily: 'Urbanist',
           fontWeight: 400,
-          fontStyle: 'normal',
-          lineHeight: '100%',
-          letterSpacing: '0%',
-          textAlign: 'center'
-        }}>Case Study</button>
+        }}>Case Study</Link>
         <button
           className=" cursor-pointer py-3 px-4 lg:py-[14px] lg:px-[20px] rounded-[7px] bg-[#64D3FF] hover:bg-[#8bcde7] text-sm xl:text-base"
           style={{
