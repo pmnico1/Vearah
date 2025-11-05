@@ -28,10 +28,10 @@ export const projectsData: Project[] = [
     id: 'lumo',
     title: 'Lumo AI-Powered Learning Assistant',
     subtitle: 'AI-Powered Learning Assistant',
-    heroImage: '/images/portfolio/1.png',
+    heroImage: '/images/portfolio/1.jpg',
     images: [
-      '/images/portfolio/1.png',
-      '/images/portfolio/1.png',
+      '/images/portfolio/1.jpg',
+      '/images/portfolio/1.jpg',
     ],
     technologies: ['React Native', 'AI/ML', 'Node.js', 'TypeScript'],
     year: '2024',
