@@ -254,7 +254,7 @@ export default function ProjectShowcase({ project }: ProjectShowcaseProps) {
           </div>
         </div>
 
-        <DualImageSection images={project.images} />
+        <DualImageSection images={[project.images[1], project.images[2]]} />
 
         <div ref={challengeRef} className='text-lg md:text-[24px] py-50'>
           <p>Challenge</p>
@@ -282,7 +282,7 @@ export default function ProjectShowcase({ project }: ProjectShowcaseProps) {
           }}
         >
           <Image
-            src={project.images[0]}
+            src={project.images[3]}
             className='w-full h-auto scale-100 hover:scale-105 transition-all duration-1000 rounded-[40px]'
             alt={project.title}
             width={1500}
@@ -310,7 +310,7 @@ export default function ProjectShowcase({ project }: ProjectShowcaseProps) {
           }}
         >
           <Image
-            src={project.images[0]}
+            src={project.images[4]}
             className='w-full h-auto scale-100 hover:scale-105 transition-all duration-1000 rounded-[40px]'
             alt={project.title}
             width={1500}
@@ -327,11 +327,25 @@ export default function ProjectShowcase({ project }: ProjectShowcaseProps) {
             ))}
           </ul>
         </div>
+        <Image
+          src={project.images[5]}
+          className='w-full h-auto scale-100 hover:scale-105 transition-all duration-1000 rounded-[40px]'
+          alt={project.title}
+          width={1500}
+          height={1000}
+        />
+      </div>
+      <div className='py-[200px] p-10 md:px-[200px] 2xl:px-[400px] text-4xl lg:text-6xl'>
+        <p>Have a project on your mind?</p>
+        <p>Share the details with us!</p>
+        <a href="/contact"
+          className={`relative bg-[#64D3FF] hover:bg-[#8bcde7] w-fit text-2xl rounded-[7px] flex flex-col items-start px-20 py-6 overflow-hidden font-semibold text-black my-16`}
+        >
+          Let`s Connect!
+        </a>
       </div>
       <div className='h-10 md:h-80' />
-
-      {/* Dual Image Section */}
       <Footer />
-    </div>
+    </div >
   );
 }

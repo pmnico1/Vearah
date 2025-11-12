@@ -2,7 +2,6 @@ export interface Project {
   id: string;
   title: string;
   subtitle: string;
-  heroImage: string;
   overview: string;
   images: string[];
   technologies?: string[];
@@ -28,10 +27,13 @@ export const projectsData: Project[] = [
     id: 'lumo',
     title: 'Lumo AI-Powered Learning Assistant',
     subtitle: 'AI-Powered Learning Assistant',
-    heroImage: '/images/portfolio/1.jpg',
     images: [
-      '/images/portfolio/1.jpg',
-      '/images/portfolio/1.jpg',
+      '/projects/lumo/1.jpg',
+      '/projects/lumo/2.jpg',
+      '/projects/lumo/3.jpg',
+      '/projects/lumo/4.jpg',
+      '/projects/lumo/5.jpg',
+      '/projects/lumo/6.jpg',
     ],
     technologies: ['React Native', 'AI/ML', 'Node.js', 'TypeScript'],
     year: '2024',
