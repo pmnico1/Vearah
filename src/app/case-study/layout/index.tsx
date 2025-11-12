@@ -5,6 +5,7 @@ import React, { useRef, useEffect } from 'react'
 import { Projects } from './data'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import Link from 'next/link'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -105,7 +106,7 @@ export default function Layout() {
       <div ref={gridRef} className='grid grid-cols-1 lg:grid-cols-2 gap-15'>
         {
           Projects.map((project, index) => (
-            <div key={index} className='w-full'>
+            <Link href={"/project" + project.link} key={index} className='w-full'>
               <div>
                 <Image
                   src={project.image}
@@ -117,7 +118,7 @@ export default function Layout() {
               </div>
               <p className='text-[20px] lg:text-[40px] pt-15'>{project.title}</p>
               <p className='text-[16px] lg:text-[24px] pt-4'>{project.description}</p>
-            </div>
+            </Link>
           ))
         }
       </div>
