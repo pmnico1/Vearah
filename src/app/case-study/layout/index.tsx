@@ -90,7 +90,7 @@ export default function Layout() {
   }, [])
 
   return (
-    <div ref={containerRef} className='px-10 lg:px-50 py-20 lg:py-30'>
+    <div ref={containerRef} className='px-10 lg:px-16 xl:px-28 2xl:px-50 py-20 lg:py-30'>
       <p ref={titleRef} className='text-[40px] lg:text-[64px] pb-10'>Lumo AI-Powered Learning Assistant</p>
       <Image
         ref={bannerRef}
@@ -116,8 +116,8 @@ export default function Layout() {
                   alt={project.title}
                 />
               </div>
-              <p className='text-[20px] lg:text-[40px] pt-10'>{project.title}</p>
-              <p className='text-[16px] lg:text-[24px] pt-4'>{project.description}</p>
+              <p className='text-[25px] lg:text-[40px] pt-10'>{project.title}</p>
+              <p className='text-[20px] lg:text-[24px] pt-4'>{project.description}</p>
             </Link>
           ))
         }
