@@ -33,7 +33,7 @@ export default function Hero() {
             delayT={1}
           />
         </div>
-        <div className="text-[40px] md:text-[64px] leading-[72px] tracking-[0.02em] text-center text-white font-semibold">
+        <div className="text-[40px] md:text-[64px] leading-[72px] tracking-[0.02em] text-center text-white font-semibold z-50">
           <SplitText
             text='Designing the future of digital experiences'
             duration={0.4}
@@ -44,11 +44,11 @@ export default function Hero() {
         <div ref={groupRef} className='flex justify-center items-center w-full mt-[90px] opacity-0'>
           <Image src={'/images/group.png'} alt={'group'} width={430} height={86} className='w-[230px] h-[86px]' />
         </div>
-        <div ref={leftImgRef} className='absolute md:left-1/7 left-2 bottom-60 md:bottom-80  opacity-0'>
-          <Image src={'/images/hero/2.png'} alt={'vearah'} width={196} height={190} className='w-[196px] h-[190px] object-cover' />
+        <div ref={leftImgRef} className='absolute md:left-1/7 left-2 top-68  opacity-0'>
+          <Image src={'/images/hero/2.png'} alt={'vearah'} width={196} height={190} className='w-auto h-[140px] md:h-[190px] object-cover' />
         </div>
-        <div ref={rightImgRef} className='absolute -right-2 md:right-1/7 bottom-36 md:bottom-60  opacity-0'>
-          <Image src={'/images/hero/1.png'} alt={'agency'} width={300} height={236} className='w-[300px] h-[236px] object-cover -rotate-40' />
+        <div ref={rightImgRef} className='absolute -right-2 md:right-1/7 top-92  opacity-0'>
+          <Image src={'/images/hero/1.png'} alt={'agency'} width={300} height={236} className='w-auto h-[160px] md:h-[230px] object-cover -rotate-40' />
         </div>
         <p ref={textRef} className='text-center text-base md:text-xl mt-[100px]  opacity-0'>We are a future-building partner. Where creativity <br /> meets intelligence, and every product becomes a story worth experiencing.</p>
       </div>
