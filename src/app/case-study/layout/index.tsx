@@ -103,20 +103,20 @@ export default function Layout() {
       <p ref={subtitleRef} className='text-[20px] lg:text-[40px] py-4'>Lumo - AI Learning Assistant</p>
       <p ref={descriptionRef} className='text-[16px] lg:text-[20px]'>A personalized AI-Powered Learning Assistant</p>
       <div className='h-[300px]' />
-      <div ref={gridRef} className='grid grid-cols-1 lg:grid-cols-2 gap-15'>
+      <div ref={gridRef} className='grid grid-cols-1 lg:grid-cols-2 gap-20'>
         {
           Projects.map((project, index) => (
-            <Link href={"/project" + project.link} key={index} className='w-full'>
+            <Link href={"/project" + project.link} key={index} className='w-full pb-20'>
               <div>
                 <Image
                   src={project.image}
-                  className='h-[650px] w-auto object-cover rounded-[20px] grayscale-0 hover:grayscale transition-all duration-1000'
+                  className='h-[500px] w-full object-cover rounded-[20px] grayscale-0 hover:grayscale transition-all duration-1000'
                   width={1030}
                   height={850}
                   alt={project.title}
                 />
               </div>
-              <p className='text-[20px] lg:text-[40px] pt-15'>{project.title}</p>
+              <p className='text-[20px] lg:text-[40px] pt-10'>{project.title}</p>
               <p className='text-[16px] lg:text-[24px] pt-4'>{project.description}</p>
             </Link>
           ))
