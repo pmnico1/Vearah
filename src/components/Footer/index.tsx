@@ -1,115 +1,14 @@
 'use client'
 import Image from 'next/image'
-import React, { useEffect, useRef } from 'react'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
-gsap.registerPlugin(ScrollTrigger)
+import React from 'react'
 
 export default function Footer() {
-  const sectionRef = useRef<HTMLDivElement>(null)
-  const headingRef = useRef<HTMLHeadingElement>(null)
-  const buttonsRef = useRef<HTMLDivElement>(null)
-  const textRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const section = sectionRef.current
-    if (!section) return
-
-    // Set initial state - different directions
-    gsap.set(headingRef.current, {
-      opacity: 0,
-      y: -100
-    })
-
-    const buttons = buttonsRef.current?.children
-    if (buttons) {
-      gsap.set(buttons[0], { opacity: 0, x: -100 })
-      gsap.set(buttons[1], { opacity: 0, y: -100 })
-      gsap.set(buttons[2], { opacity: 0, x: 100 })
-    }
-
-    gsap.set(textRef.current, {
-      opacity: 0,
-      y: 100
-    })
-
-    // Animate heading from top
-    gsap.to(headingRef.current, {
-      opacity: 1,
-      y: 0,
-      duration: 1,
-      ease: "elastic.out(1, 0.5)",
-      scrollTrigger: {
-        trigger: section,
-        start: "top 80%",
-        toggleActions: "play none none none"
-      }
-    })
-
-    // Animate buttons from different directions
-    if (buttons) {
-      gsap.to(buttons[0], {
-        opacity: 1,
-        x: 0,
-        duration: 0.8,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: section,
-          start: "top 80%",
-          toggleActions: "play none none none"
-        }
-      })
-      gsap.to(buttons[1], {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        ease: "power2.out",
-        delay: 0.2,
-        scrollTrigger: {
-          trigger: section,
-          start: "top 80%",
-          toggleActions: "play none none none"
-        }
-      })
-      gsap.to(buttons[2], {
-        opacity: 1,
-        x: 0,
-        duration: 0.8,
-        ease: "power2.out",
-        delay: 0.4,
-        scrollTrigger: {
-          trigger: section,
-          start: "top 80%",
-          toggleActions: "play none none none"
-        }
-      })
-    }
-
-    // Animate description text from bottom
-    gsap.to(textRef.current, {
-      opacity: 1,
-      y: 0,
-      duration: 1,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: section,
-        start: "top 80%",
-        toggleActions: "play none none none"
-      }
-    })
-
-    return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill())
-    }
-  }, [])
 
   return (
-    <div>
-      <div ref={sectionRef} className="py-40 flex flex-col items-center justify-center">
+    <footer>
+      <div className="py-40 flex flex-col items-center justify-center">
         {/* VEARAH Branding */}
         <h1
-          ref={headingRef}
           className="uppercase font-bold tracking-[0.3em] text-center mb-2 md:mb-16
           text-transparent bg-clip-text
           bg-[linear-gradient(180deg,#ffffff_-14.79%,rgba(1,1,1,0)_93.33%)] text-[60px]
@@ -120,7 +19,7 @@ export default function Footer() {
         </h1>
 
         {/* Three Icon Buttons */}
-        <div ref={buttonsRef} className="flex gap-5 mb-10 md:mb-20">
+        <div className="flex gap-5 mb-10 md:mb-20">
           {[1, 2, 3].map((item) => (
             <button
               key={item}
@@ -146,7 +45,7 @@ export default function Footer() {
         </div>
 
         {/* Description Text */}
-        <div ref={textRef} className="text-center max-w-4xl p-4">
+        <div className="text-center max-w-4xl p-4">
           <p className="text-base md:text-xl leading-relaxed">
             We are not just a design and tech agency, we are a future-
             <br className='hidden md:block' />
@@ -157,6 +56,6 @@ export default function Footer() {
         </div>
       </div>
       <Image src="/footer.png" alt="footer" width={1900} height={300} className='w-full' />
-    </div>
+    </footer>
   )
 }

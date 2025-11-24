@@ -6,6 +6,7 @@ import { imgVuesaxLinearSort } from "@/assets/svgs/2jcut";
 
 export default function FloatingMenu() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isFooterVisible, setIsFooterVisible] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -24,6 +25,27 @@ export default function FloatingMenu() {
     }
   }, []); // Empty dependency array for mount-only effect
 
+  useEffect(() => {
+    // Observe footer visibility
+    const footer = document.querySelector('footer');
+    if (!footer) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsFooterVisible(entry.isIntersecting);
+      },
+      {
+        threshold: 0.1, // Trigger when 10% of footer is visible
+      }
+    );
+
+    observer.observe(footer);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   const handleBookCall = () => {
     window.open('https://calendly.com/met4guy', '_blank');
   };
@@ -33,7 +55,10 @@ export default function FloatingMenu() {
   };
 
   return (
-    <div ref={menuRef} className="z-50 opacity-0">
+    <div
+      ref={menuRef}
+      className={`z-50 opacity-0 transition-opacity duration-300 ${isFooterVisible ? '!opacity-0 pointer-events-none' : ''}`}
+    >
       {/* Main CTA bar (500x89, centered) */}
       <div className="fixed left-1/2 -translate-x-1/2 bottom-20 lg:bottom-2 z-50">
         <div
