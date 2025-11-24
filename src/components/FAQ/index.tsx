@@ -112,7 +112,7 @@ export default function FAQ() {
   }
 
   return (
-    <div ref={sectionRef} className='flex flex-col justify-center items-center w-full text-center my-40 px-10 md:px-4'>
+    <div id="faq" ref={sectionRef} className='flex flex-col justify-center items-center w-full text-center my-40 px-10 md:px-4'>
       <p ref={titleRef} className='text-white text-[40px] max-w-[500px] mx-auto px-10 mb-16 font-medium'>
         What are the questions people keep asking?
       </p>
