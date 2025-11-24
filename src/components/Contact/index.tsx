@@ -62,7 +62,7 @@ export default function Contact() {
   };
 
   return (
-    <div className='flex flex-col justify-center items-center w-full text-white text-center my-40 p-10 md:p-2'>
+    <div id="contact" className='flex flex-col justify-center items-center w-full text-white text-center my-40 p-10 md:p-2'>
       <p className=" text-sm font-medium mb-4">Contact us</p>
       <p className=' text-[24px] md:text-[40px] max-w-[600px] mx-auto mb-16 font-medium'>
         Drop us your email and fill in your details and we will be in touch.
