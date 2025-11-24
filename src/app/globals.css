@@ -96,3 +96,53 @@ div {
   box-shadow: 0px 1rem 1.5rem -0.9rem #000000e1;
 
 }
+
+::-webkit-scrollbar {
+  width: 1px;
+  height: 10px; 
+}
+
+::-webkit-scrollbar-track {
+  background: #141414;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #303030;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #303030
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #3b3b3b;
+}
+
+/* Textarea scrollbar styling */
+textarea::-webkit-scrollbar {
+  width: 8px;
+  height: 10px;
+}
+
+textarea::-webkit-scrollbar-track {
+  background: #141414;
+  border-radius: 10px;
+}
+
+textarea::-webkit-scrollbar-thumb {
+  background: #303030;
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+textarea::-webkit-scrollbar-thumb:hover {
+  background: #404040;
+}
+
+textarea {
+  scrollbar-width: thin;
+  scrollbar-color: #303030 #141414;
+}
