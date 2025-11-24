@@ -48,7 +48,7 @@ export default function TeamCard({
 
         {/* Name and Title */}
         <div className="animate-fade-in-right">
-          <h3 className="text-lg font-semibold transition-colors duration-300 hover:text-blue-400">{name}</h3>
+          <h3 className="text-lg font-semibold transition-colors duration-300 hover:text-blue-400 text-left">{name}</h3>
           <p className="text-sm transition-colors duration-300 hover:text-gray-300">{title} of {company}</p>
         </div>
       </div>
