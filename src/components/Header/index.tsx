@@ -38,10 +38,10 @@ export default function Header() {
   return (
     <header
       ref={headerRef}
-      className="flex justify-between items-center px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 py-4 md:py-4 relative opacity-0"
+      className="flex justify-between items-center px-5 md:px-8 lg:px-16 xl:px-24 py-4 md:py-4 relative opacity-0"
     >
       {/* Logo */}
-      <Link href="/" className="text-sm sm:text-base md:text-lg font-semibold cursor-pointer" style={{
+      <Link href="/" className="text-lg font-semibold cursor-pointer" style={{
         fontFamily: 'Urbanist',
         fontWeight: 600,
         lineHeight: '100%',
@@ -50,8 +50,7 @@ export default function Header() {
         Vearah
       </Link>
 
-      {/* Desktop Navigation */}
-      <nav className="hidden lg:flex gap-6 xl:gap-8 items-center">
+      <nav className="flex gap-6 xl:gap-8 items-center">
         <Link href={'/case-study'} className="hover:opacity-80 transition-opacity text-sm xl:text-base  cursor-pointer" style={{
           fontFamily: 'Urbanist',
           fontWeight: 400,
@@ -67,71 +66,6 @@ export default function Header() {
           Book a call
         </button>
       </nav>
-
-      {/* Mobile Menu Button */}
-      <button
-        className="lg:hidden flex flex-col gap-1 p-2 touch-manipulation"
-        onClick={toggleMenu}
-        aria-label="Toggle menu"
-        aria-expanded={isMenuOpen}
-      >
-        <span className={`w-6 h-0.5 bg-white transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></span>
-        <span className={`w-6 h-0.5 bg-white transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`}></span>
-        <span className={`w-6 h-0.5 bg-white transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></span>
-      </button>
-
-      {/* Mobile Navigation Menu */}
-      <div className={`lg:hidden absolute top-full left-0 right-0 bg-black/95 backdrop-blur-sm border-t border-white/10 z-50 transition-all duration-300 ease-in-out ${isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'}`}>
-        <nav className="flex flex-col p-6 space-y-6">
-          <button
-            className="text-left py-3 hover:opacity-80 transition-opacity text-base"
-            style={{
-              fontFamily: 'Urbanist',
-              fontWeight: 400,
-              fontStyle: 'normal',
-              lineHeight: '100%',
-              letterSpacing: '0%',
-              textAlign: 'left',
-            }}
-            onClick={() => setIsMenuOpen(false)}
-          >
-            Case Study
-          </button>
-
-          <button
-            className="text-left py-3 hover:opacity-80 transition-opacity text-base"
-            style={{
-              fontFamily: 'Urbanist',
-              fontWeight: 400,
-              fontStyle: 'normal',
-              lineHeight: '100%',
-              letterSpacing: '0%',
-              textAlign: 'left',
-            }}
-            onClick={() => setIsMenuOpen(false)}
-          >
-            Read Our Manifesto
-          </button>
-
-          <button
-            className="w-full py-4 rounded-[7px] bg-[#64D3FF] text-base"
-            style={{
-              fontFamily: 'Urbanist',
-              fontWeight: 600,
-              color: '#000000',
-              lineHeight: '100%',
-              letterSpacing: '0%',
-              textAlign: 'center',
-            }}
-            onClick={() => {
-              handleBookCall();
-              setIsMenuOpen(false);
-            }}
-          >
-            Book a call
-          </button>
-        </nav>
-      </div>
     </header>
   )
 }

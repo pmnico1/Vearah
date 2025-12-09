@@ -46,7 +46,7 @@ export default function Footer() {
 
         {/* Description Text */}
         <div className="text-center max-w-4xl p-4">
-          <p className="text-base md:text-xl leading-relaxed">
+          <p className="text-[20px] md:text-xl leading-relaxed">
             We are not just a design and tech agency, we are a future-
             <br className='hidden md:block' />
             building partner. Where creativity meets intelligence, and every

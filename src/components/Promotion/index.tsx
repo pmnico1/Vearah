@@ -57,9 +57,9 @@ export default function Promotion() {
   return (
     <div ref={sectionRef} className='flex flex-col justify-center items-center w-full text-center my-80'>
       <p ref={titleRef} className='text-[40px] max-w-[500px] mx-auto px-10'>What makes us different</p>
-      <p ref={descriptionRef} className='text-[20px] max-w-[600px] mx-auto py-5'>We are a team of designers, developers, and strategists who are passionate about creating beautiful and functional websites and applications.</p>
+      <p ref={descriptionRef} className='text-[20px] max-w-[600px] mx-auto px-5 py-5'>We are a team of designers, developers, and strategists who are passionate about creating beautiful and functional websites and applications.</p>
 
-      <div ref={cardsRef} className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12 mx-10 md:mx-32 lg:mx-52 my-20'>
+      <div ref={cardsRef} className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12 mx-5 md:mx-32 lg:mx-52 my-20'>
         {promotionCards.map((card) => (
           <Card
             key={card.id}

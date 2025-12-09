@@ -57,7 +57,7 @@ export default function FloatingMenu() {
   return (
     <div
       ref={menuRef}
-      className={`z-50 opacity-0 transition-opacity duration-300 ${isFooterVisible ? '!opacity-0 pointer-events-none' : ''}`}
+      className={`z-50 hidden md:block opacity-0 transition-opacity duration-300 ${isFooterVisible ? '!opacity-0 pointer-events-none' : ''}`}
     >
       {/* Main CTA bar (500x89, centered) */}
       <div className="fixed left-1/2 -translate-x-1/2 bottom-20 lg:bottom-2 z-50">

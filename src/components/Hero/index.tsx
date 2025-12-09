@@ -24,7 +24,7 @@ export default function Hero() {
 
   return (
     <div className="min-h-screen relative flex items-start justify-center mb-96">
-      <div className="w-full max-w-[500px]">
+      <div className="w-full max-w-[500px] px-5">
         <div className="text-[24px] text-center text-white mb-5 mt-[125px]" style={{ fontWeight: '400' }}>
           <SplitText
             text='How the story begins'
@@ -33,7 +33,7 @@ export default function Hero() {
             delayT={1}
           />
         </div>
-        <div className="text-[40px] md:text-[64px] leading-[72px] tracking-[0.02em] text-center text-white font-semibold z-50">
+        <div className="text-[40px] md:text-[64px] leading-[52px] md:leading-[72px] tracking-[0.02em] text-center text-white font-semibold z-50">
           <SplitText
             text='Designing the future of digital experiences'
             duration={0.4}
@@ -41,16 +41,16 @@ export default function Hero() {
             delayT={1}
           />
         </div>
-        <div ref={groupRef} className='flex justify-center items-center w-full mt-[90px] opacity-0'>
+        <div ref={groupRef} className='flex justify-center items-center w-full mt-[60px] md:mt-[90px] opacity-0'>
           <Image src={'/images/group.png'} alt={'group'} width={430} height={86} className='w-[230px] h-[86px]' />
         </div>
-        <div ref={leftImgRef} className='absolute md:left-1/7 left-2 top-68  opacity-0'>
+        <div ref={leftImgRef} className='hidden md:block absolute md:left-1/7 left-2 top-68  opacity-0'>
           <Image src={'/images/hero/2.png'} alt={'vearah'} width={196} height={190} className='w-auto h-[140px] md:h-[190px] object-cover' />
         </div>
-        <div ref={rightImgRef} className='absolute -right-2 md:right-1/7 top-92  opacity-0'>
+        <div ref={rightImgRef} className='hidden md:block absolute -right-2 md:right-1/7 top-92  opacity-0'>
           <Image src={'/images/hero/1.png'} alt={'agency'} width={300} height={236} className='w-auto h-[160px] md:h-[230px] object-cover -rotate-40' />
         </div>
-        <p ref={textRef} className='text-center text-base md:text-xl mt-[100px]  opacity-0'>We are a future-building partner. Where creativity <br /> meets intelligence, and every product becomes a story worth experiencing.</p>
+        <p ref={textRef} className=' text-center text-base md:text-xl mt-[100px]  opacity-0'>We are a future-building partner. Where creativity meets intelligence, and every product becomes a story worth experiencing.</p>
       </div>
       <div className='flex flex-row justify-center'>
         <FloatingMenu />

@@ -39,7 +39,7 @@ export default function ProcessCard({
       >
         <div
           ref={contentRef}
-          className='w-full md:w-1/2 lg:w-2/5 flex flex-col justify-between items-start p-10 md:p-16 lg:p-25'
+          className='w-full md:w-1/2 lg:w-2/5 flex flex-col justify-between items-start p-6 md:p-16 lg:p-25'
         >
           <div className="relative z-10">
             <p className='text-xl md:text-2xl md:text-[32px] text-left text-white'>{title + ' - ' + subtitle}</p>
@@ -53,7 +53,7 @@ export default function ProcessCard({
             </div>
           </div>
           <p className='md:block hidden text-[40px] text-white/60'>{'0' + stepNumber}</p>
-          <p className='md:hidden block absolute right-7 top-7  text-[40px] text-white/60'>{'0' + stepNumber}</p>
+          <p className='md:hidden block absolute right-3 top-3 font-extralight  text-[40px] text-white/60'>{'0' + stepNumber}</p>
 
         </div>
 

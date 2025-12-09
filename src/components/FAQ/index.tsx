@@ -112,8 +112,8 @@ export default function FAQ() {
   }
 
   return (
-    <div id="faq" ref={sectionRef} className='flex flex-col justify-center items-center w-full text-center my-40 px-10 md:px-4'>
-      <p ref={titleRef} className='text-white text-[40px] max-w-[500px] mx-auto px-10 mb-16 font-medium'>
+    <div id="faq" ref={sectionRef} className='flex flex-col justify-center items-center w-full text-center my-40 px-5'>
+      <p ref={titleRef} className='text-white md:text-[40px] text-[32px] max-w-[500px] mx-auto px-5 mb-16 font-medium'>
         What are the questions people keep asking?
       </p>
 
@@ -134,7 +134,7 @@ export default function FAQ() {
               >
                 {/* Question Header */}
                 <div className={`flex justify-between items-center w-full h-[29px]`}>
-                  <span className="text-white text-2xl font-normal leading-[29px] font-['Urbanist']">
+                  <span className="text-white text-2xl font-normal text-left leading-[29px] font-['Urbanist']">
                     {highlightVearah(item.question)}
                   </span>
 
@@ -163,7 +163,7 @@ export default function FAQ() {
                 className={`max-w-[920px] w-full text-left transition-all duration-500 overflow-hidden ${expandedIndex === index ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
                   }`}
               >
-                <p className="text-white text-lg leading-7 font-normal font-['Urbanist']">
+                <p className="text-white text-lg leading-7 font-normal font-['Urbanist'] py-5">
                   {item.answer}
                 </p>
               </div>

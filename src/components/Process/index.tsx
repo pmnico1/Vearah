@@ -69,10 +69,10 @@ export default function Process() {
     >
       {/* Header Section (sticks at top while stack occurs) */}
       <div className=' top-0 z-20 w-full py-20 -translate-y-10 bg-transparent'>
-        <p className='text-[40px]/[1.2] max-w-[500px] mx-auto px-10 text-white'>
+        <p className='text-[32px] md:text-[40px]/[1.2] max-w-[500px] mx-auto md:px-10 px-5 text-white'>
           We created Vearah to be naturally ahead
         </p>
-        <p className='text-[20px] max-w-[600px] mx-auto py-5 text-white/80 px-10'>
+        <p className='text-[20px] max-w-[600px] mx-auto py-5 text-white/80 md:px-10 px-5'>
           We created Vearah to help visionary companies design the future. We don`t just make things look good we craft clarity, trust, and growth into every product.
         </p>
       </div>

@@ -47,21 +47,21 @@ export default function Home() {
         <Intro />
         <div className="h-[400px]" />
         <Portfolio />
-        <div className="relative h-[200px]" >
+        <div className="hidden md:block relative h-[200px]" >
           <div className="absolute bottom-0 left-0 w-full">
             <Image src="/footer.png" alt="footer" width={1900} height={300} className='w-full' />
           </div>
         </div>
         <Service />
-        <div className="h-[200px]" />
+        <div className="hidden md:block h-[200px]" />
         <Process />
         <div className="h-[200px]" />
         <Promotion />
-        <div className="h-[200px]" />
+        <div className="md:h-[200px] h-0" />
         <FAQ />
-        <div className="h-[200px]" />
+        <div className="md:h-[200px] h-0" />
         <Team />
-        <div className="h-[200px]" />
+        <div className="md:h-[200px] h-0" />
         <Contact />
         <div className="h-[150px]" />
         <Footer />

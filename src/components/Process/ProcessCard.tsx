@@ -29,7 +29,7 @@ export default function ProcessCard({
       style={{ transformStyle: 'preserve-3d' }}
     >
       <div
-        className="w-full h-full flex justify-between rounded-[40px] relative overflow-hidden border-t-2 bg-[#010101] border-[#171e25] border-b backdrop-blur-2xl"
+        className="w-full h-full flex flex-col md:flex-row justify-between rounded-[40px] relative overflow-hidden border-t-2 bg-[#010101] border-[#171e25] border-b backdrop-blur-2xl"
         style={{
           background: 'radial-gradient(55.32% 44% at 51.71% 0%, rgba(129, 187, 255, 0.3) 0%, rgba(0, 0, 0, 0) 100%)',
           boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1)'
@@ -37,19 +37,20 @@ export default function ProcessCard({
       >
         <div
           ref={contentRef}
-          className='w-1/2 flex flex-col justify-between items-start px-5 md:px-12 pt-12 pb-2'
+          className='md:w-1/2 w-full flex flex-col justify-between items-start px-5 md:px-12 pt-12 pb-2'
         >
           <div className="relative z-10">
             <p className='text-2xl md:text-[32px] text-left text-white'>{title}</p>
             <p className='text-base md:text-[18px] py-8 text-left max-w-[600px] text-white/80'>{description}</p>
           </div>
-          <p className='text-[40px] text-white/60 '>{stepNumber}</p>
+          <p className='md:block hidden text-[40px] text-white/60 '>{stepNumber}</p>
+          <p className='md:hidden block absolute right-3 top-3 font-extralight  text-[40px] text-white/60'>{stepNumber}</p>
         </div>
 
-        <div ref={imageRef} className='w-1/2 overflow-hidden rounded-l-[40px]'>
+        <div ref={imageRef} className='md:w-1/2 w-full overflow-hidden  p-4 md:p-0'>
           <Image
             src={imageSrc}
-            className='w-full h-full object-cover transition-transform duration-300 group-hover:scale-110'
+            className='w-full h-full object-cover transition-transform duration-300 group-hover:scale-110 rounded-l-[40px] rounded-r-[40px] md:rounded-r-none '
             alt={imageAlt}
             width={500}
             height={500}
