@@ -63,7 +63,7 @@ export default function Home() {
         <Team />
         <div className="md:h-[200px] h-0" />
         <Contact />
-        <div className="h-[150px]" />
+        <div className="md:h-[150px] h-0" />
         <Footer />
       </ReactLenis>
     </div>
