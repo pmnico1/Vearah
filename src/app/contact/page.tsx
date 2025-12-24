@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import Header from '@/components/Header'
 import type { Metadata } from "next";
 import Main from './Main'
@@ -27,7 +27,9 @@ export default function Contact() {
   return (
     <div>
       <Header />
-      <Main />
+      <Suspense fallback={<div className="flex justify-center items-center min-h-[50vh]"><div className="text-white">Loading...</div></div>}>
+        <Main />
+      </Suspense>
       <Intro />
       <Footer />
     </div>
