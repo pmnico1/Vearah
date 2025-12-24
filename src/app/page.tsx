@@ -12,6 +12,7 @@ import Contact from "@/components/Contact";
 import Service from "@/components/Service";
 import type { Metadata } from "next";
 import Image from "next/image";
+import Package from "@/components/Package";
 
 export const metadata: Metadata = {
   title: "Vearah - Home",
@@ -58,6 +59,12 @@ export default function Home() {
         <div className="h-[200px]" />
         <Promotion />
         <div className="md:h-[200px] h-0" />
+        <Package />
+        <div className="hidden md:block relative h-[200px]" >
+          <div className="absolute bottom-0 left-0 w-full">
+            <Image src="/footer.png" alt="footer" width={1900} height={300} className='w-full' />
+          </div>
+        </div>
         <FAQ />
         <div className="md:h-[200px] h-0" />
         <Team />

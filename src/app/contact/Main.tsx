@@ -1,9 +1,11 @@
 'use client';
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { useSearchParams } from 'next/navigation'
 import emailjs from '@emailjs/browser'
 
 export default function Main() {
+  const searchParams = useSearchParams();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -12,6 +14,16 @@ export default function Main() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [notification, setNotification] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
+
+  useEffect(() => {
+    const messageFromParams = searchParams.get('message');
+    if (messageFromParams) {
+      setFormData(prev => ({
+        ...prev,
+        message: decodeURIComponent(messageFromParams)
+      }));
+    }
+  }, [searchParams]);
 
   const handleBookCall = () => {
     window.open('https://calendly.com/met4guy', '_blank');
