@@ -18,30 +18,53 @@ export default function Footer() {
           VEARAH
         </h1>
 
-        {/* Three Icon Buttons */}
+        {/* Social Media Icons */}
         <div className="flex gap-5 mb-10 md:mb-20">
-          {[1, 2, 3].map((item) => (
-            <button
-              key={item}
-              className="bg-[#111010] rounded-lg md:rounded-[20px] flex items-center justify-center p-4 md:p-10 relative"
-            >
-              {/* send (hidden) */}
-              <div className="hidden w-8 h-8" aria-hidden="true" />
-
-              {/* messages */}
-              <svg
-                className="w-6 h-6"
-                viewBox="0 0 24 24"
-                fill="white"
-                aria-hidden="true"
-              >
-                <path d="M20 2H4a2 2 0 00-2 2v14l4-3h14a2 2 0 002-2V4a2 2 0 00-2-2z" />
-                <circle cx="7" cy="10" r="1.25" />
-                <circle cx="12" cy="10" r="1.25" />
-                <circle cx="17" cy="10" r="1.25" />
-              </svg>
-            </button>
-          ))}
+          <a
+            href="https://x.com/VearahAgency"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-[#111010] rounded-lg md:rounded-[20px] flex items-center justify-center p-4 md:p-10 relative hover:opacity-80 transition-opacity"
+            aria-label="Visit Vearah on X (Twitter)"
+          >
+            <Image
+              src="/svgs/x.svg"
+              alt="X (Twitter)"
+              width={24}
+              height={24}
+              className="w-6 h-6"
+            />
+          </a>
+          <a
+            href="https://www.linkedin.com/company/vearah"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-[#111010] rounded-lg md:rounded-[20px] flex items-center justify-center p-4 md:p-10 relative hover:opacity-80 transition-opacity"
+            aria-label="Visit Vearah on LinkedIn"
+          >
+            <Image
+              src="/svgs/linkedin.svg"
+              alt="LinkedIn"
+              width={18}
+              height={18}
+              className="w-6 h-6"
+            />
+          </a>
+          <a
+            href="https://www.behance.net/vearahstudio"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-[#111010] rounded-lg md:rounded-[20px] flex items-center justify-center p-4 md:p-10 relative hover:opacity-80 transition-opacity"
+            aria-label="Visit Vearah on Behance"
+          >
+            <Image
+              src="/svgs/behance.svg"
+              alt="Behance"
+              width={20}
+              height={20}
+              className="w-6 h-6"
+            />
+          </a>
         </div>
 
         {/* Description Text */}

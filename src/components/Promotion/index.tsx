@@ -55,7 +55,7 @@ export default function Promotion() {
   };
 
   return (
-    <div ref={sectionRef} className='flex flex-col justify-center items-center w-full text-center my-80'>
+    <div ref={sectionRef} className='flex flex-col justify-center items-center w-full text-center mt-80'>
       <p ref={titleRef} className='text-[40px] max-w-[500px] mx-auto px-10'>What makes us different</p>
       <p ref={descriptionRef} className='text-[20px] max-w-[600px] mx-auto px-5 py-5'>We are a team of designers, developers, and strategists who are passionate about creating beautiful and functional websites and applications.</p>
 

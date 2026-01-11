@@ -58,8 +58,6 @@ export default function Home() {
         <Process />
         <div className="h-[200px]" />
         <Promotion />
-        <div className="md:h-[200px] h-0" />
-        <Package />
         <div className="hidden md:block relative h-[200px]" >
           <div className="absolute bottom-0 left-0 w-full">
             <Image src="/footer.png" alt="footer" width={1900} height={300} className='w-full' />
