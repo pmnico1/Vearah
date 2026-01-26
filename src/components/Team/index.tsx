@@ -30,31 +30,7 @@ const teamMembers = [
     company: "Future Dynamics",
     quote: "Working with this team means getting both exceptional technical execution and strategic vision. They've become an extension of our team.",
     avatar: "/images/feedback/3.jpg",
-  },
-  {
-    id: 4,
-    name: "Emma Rodriguez",
-    title: "VP of Engineering",
-    company: "TechVision Labs",
-    quote: "Their ability to understand complex business requirements and translate them into elegant technical solutions is unmatched. A true game-changer for our product development.",
-    avatar: "/images/feedback/1.jpg",
-  },
-  {
-    id: 5,
-    name: "Marcus Bennett",
-    title: "Founder & CEO",
-    company: "Startup Ventures",
-    quote: "From MVP to market leader in record time. Their technical expertise combined with business acumen helped us secure Series A funding ahead of schedule.",
-    avatar: "/images/feedback/2.jpg",
-  },
-  {
-    id: 6,
-    name: "Aisha Patel",
-    title: "Head of Product",
-    company: "CloudScale Systems",
-    quote: "The level of professionalism and attention to detail is extraordinary. They don't just build features—they build products that users love and that scale effortlessly.",
-    avatar: "/images/feedback/3.jpg",
-  },
+  }
 ]
 
 export default function Team() {
